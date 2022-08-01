@@ -4,7 +4,7 @@
 >
 import themes from '@/plugins/vuetify/themes';
 import store from '@/store';
-import { computed, ComputedRef, defineProps } from 'vue';
+import { computed, ComputedRef } from 'vue';
 import { useTheme } from 'vuetify';
 
 const theme = useTheme();

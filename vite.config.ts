@@ -8,8 +8,11 @@ export default defineConfig({
   plugins: [
     vue(),
     vuetify({ styles: 'expose' }),
-    vueI18n(),
+    vueI18n({ runtimeOnly: false }),
   ],
+  build: {
+    minify: false,
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

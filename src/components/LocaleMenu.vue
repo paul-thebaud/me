@@ -6,10 +6,14 @@ import ResponsiveBtn from '@/components/ResponsiveBtn.vue';
 import i18n from '@/plugins/i18n';
 import locales from '@/plugins/i18n/locales';
 import { mdiEarth } from '@mdi/js';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+
+type LocaleId = keyof typeof locales;
 
 const { t } = useI18n();
 
+const menuLabel = computed(() => locales[i18n.global.locale.value as LocaleId].name);
 const onLocaleChange = (locale: string) => {
   i18n.global.locale.value = locale;
   document.documentElement.setAttribute('lang', locale.toLowerCase());
@@ -21,7 +25,7 @@ const onLocaleChange = (locale: string) => {
     <template #activator="{ props }">
       <responsive-btn
         :icon="mdiEarth"
-        :label="locales[i18n.global.locale.value].name"
+        :label="menuLabel"
         v-bind="props"
       />
     </template>

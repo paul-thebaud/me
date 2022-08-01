@@ -3,7 +3,7 @@
   setup
 >
 import ColoredChip from '@/components/resume/utils/ColoredChip.vue';
-import { defineProps, PropType } from 'vue';
+import { PropType } from 'vue';
 
 const { items } = defineProps({
   items: {

@@ -11,6 +11,5 @@ app.use(vuetify);
 app.use(i18n);
 
 changeLocale(defaultLocale());
-console.log(i18n.global.messages.value.fr);
 
 app.mount('#app');

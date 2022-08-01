@@ -2,7 +2,6 @@
   lang="ts"
   setup
 >
-import { defineProps } from 'vue';
 import { useDisplay } from 'vuetify';
 
 const { label, icon } = defineProps({
