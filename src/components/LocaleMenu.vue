@@ -4,6 +4,7 @@
 >
 import ResponsiveBtn from '@/components/ResponsiveBtn.vue';
 import i18n from '@/plugins/i18n';
+import changeLocale from '@/plugins/i18n/changeLocale';
 import locales from '@/plugins/i18n/locales';
 import { mdiEarth } from '@mdi/js';
 import { computed } from 'vue';
@@ -15,8 +16,7 @@ const { t } = useI18n();
 
 const menuLabel = computed(() => locales[i18n.global.locale.value as LocaleId].name);
 const onLocaleChange = (locale: string) => {
-  i18n.global.locale.value = locale;
-  document.documentElement.setAttribute('lang', locale.toLowerCase());
+  changeLocale(locale);
 };
 </script>
 
