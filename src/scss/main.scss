@@ -10,3 +10,7 @@ $card-title-white-space: normal !important,
 .text--monospace {
   font-family: "Source Code Pro", monospace;
 }
+
+.page-break--avoid {
+  page-break-inside: avoid;
+}

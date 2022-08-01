@@ -5,8 +5,7 @@
 import LocaleMenu from '@/components/LocaleMenu.vue';
 import PrintBtn from '@/components/PrintBtn.vue';
 import ResumeContent from '@/components/resume/ResumeContent.vue';
-import ThemeMenu from '@/components/ThemeMenu.vue';
-</script>
+import ThemeMenu from '@/components/ThemeMenu.vue';</script>
 
 <template>
   <v-app>
@@ -33,7 +32,7 @@ import ThemeMenu from '@/components/ThemeMenu.vue';
   scoped
 >
   .v-container {
-    max-width: 950px !important;
+    max-width: 1100px !important;
   }
 
   @media print {
@@ -42,7 +41,7 @@ import ThemeMenu from '@/components/ThemeMenu.vue';
     }
 
     .v-container {
-      padding: 8mm;
+      padding: 10mm !important;
     }
   }
 </style>

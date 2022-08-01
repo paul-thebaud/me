@@ -32,15 +32,10 @@ const skills = [
     tools: [tools.GIT, tools.GITHUB, tools.GIT_KRAKEN],
   },
   {
-    title: t('categories.projects'),
+    title: t('categories.others'),
     tools: [
       { name: 'Etude des besoins', color: 'primary' },
       { name: 'Spécifications fonctionnelles', color: 'primary' },
-    ],
-  },
-  {
-    title: t('categories.others'),
-    tools: [
       tools.HEROKU,
       tools.GITHUB_ACTIONS,
       tools.SASS,

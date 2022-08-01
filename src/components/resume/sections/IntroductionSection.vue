@@ -7,11 +7,14 @@ import profileWebP from '@/assets/profile.webp';
 import OpenInNewText from '@/components/OpenInNewText.vue';
 import store from '@/store';
 import { mdiEmailOutline, mdiGithub, mdiLinkedin, mdiPhoneOutline } from '@mdi/js';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useDisplay } from 'vuetify';
 
 const { t } = useI18n();
-const { width } = useDisplay();
+const { mobile, width } = useDisplay();
+
+const contactColWidth = computed(() => mobile.value && !store.printing ? 12 : 6);
 </script>
 
 <template>
@@ -41,52 +44,57 @@ const { width } = useDisplay();
           <p class="text-body-1 mb-2">
             {{ t('description') }}
           </p>
-          <div class="d-flex flex-column flex-sm-row align-sm-center justify-sm-space-between">
-            <v-btn
-              :prepend-icon="mdiEmailOutline"
-              href="mailto:paul.thebaud29@gmail.com"
-              variant="text"
-              color="primary"
-              size="small"
+          <v-row no-gutters>
+            <v-col class="d-flex flex-column align-start">
+              <v-btn
+                :prepend-icon="mdiEmailOutline"
+                href="mailto:paul.thebaud29@gmail.com"
+                variant="text"
+                color="primary"
+                size="small"
+              >
+                paul.thebaud29@gmail.com
+              </v-btn>
+              <v-btn
+                :prepend-icon="mdiPhoneOutline"
+                href="tel:+33770796098"
+                variant="text"
+                color="primary"
+                size="small"
+              >
+                {{ t('phone') }}
+              </v-btn>
+            </v-col>
+            <v-col
+              :class="{ 'text-right': !mobile || store.printing }"
+              class="d-flex flex-column align-start"
             >
-              paul.thebaud29@gmail.com
-            </v-btn>
-            <v-btn
-              :prepend-icon="mdiGithub"
-              href="https://github.com/paul-thebaud"
-              target="_blank"
-              rel="noreferrer nofollow"
-              variant="text"
-              color="primary"
-              size="small"
-            >
-              GitHub
-              <open-in-new-text />
-            </v-btn>
-          </div>
-          <div class="d-flex flex-column flex-sm-row align-sm-center justify-sm-space-between">
-            <v-btn
-              :prepend-icon="mdiPhoneOutline"
-              href="tel:+33770796098"
-              variant="text"
-              color="primary"
-              size="small"
-            >
-              {{ t('phone') }}
-            </v-btn>
-            <v-btn
-              :prepend-icon="mdiLinkedin"
-              href="https://linkedin.com/in/paul-thebaud/"
-              target="_blank"
-              rel="noreferrer nofollow"
-              variant="text"
-              color="primary"
-              size="small"
-            >
-              LinkedIn
-              <open-in-new-text />
-            </v-btn>
-          </div>
+              <v-btn
+                :prepend-icon="mdiGithub"
+                href="https://github.com/paul-thebaud"
+                target="_blank"
+                rel="noreferrer nofollow"
+                variant="text"
+                color="primary"
+                size="small"
+              >
+                GitHub
+                <open-in-new-text />
+              </v-btn>
+              <v-btn
+                :prepend-icon="mdiLinkedin"
+                href="https://linkedin.com/in/paul-thebaud/"
+                target="_blank"
+                rel="noreferrer nofollow"
+                variant="text"
+                color="primary"
+                size="small"
+              >
+                LinkedIn
+                <open-in-new-text />
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-text>
       </div>
     </div>

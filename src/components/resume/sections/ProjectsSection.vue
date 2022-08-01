@@ -93,10 +93,10 @@ const projects = [
     },
     "projects": {
       "lifeCompanion": {
-        "description": "Développement d'une plateforme accessible avec serveur de statistiques et graphiques associés pour le suivi d'un logiciel client lourd."
+        "description": "Développement d'une plateforme accessible avec serveur de statistiques pour le suivi d'un logiciel d'aide à la communication."
       },
       "rehabLab": {
-        "description": "Développement d'une plateforme accessible avec outils de confort et outils communautaire (forum, commentaires, etc.). Automatisation de processus liés à la communauté."
+        "description": "Développement d'une plateforme accessible avec outils de confort et communautaires (forum, commentaires, etc.). Automatisation de processus liés à la communauté."
       },
       "vPhoneInput": {
         "description": "Librairie de champ de formulaire accessible pour la saisie d'un numéro de téléphone international accessible."
