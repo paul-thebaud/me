@@ -5,15 +5,15 @@
 }
 [data-v-09d7d1b3] .v-timeline-item__opposite {
   padding-inline-end: 0.75rem !important;
-}.v-container[data-v-ae4a5d87] {
-  max-width: 950px !important;
+}.v-container[data-v-9b164b98] {
+  max-width: 1100px !important;
 }
 @media print {
-.v-main[data-v-ae4a5d87] {
+.v-main[data-v-9b164b98] {
     padding: 0 !important;
 }
-.v-container[data-v-ae4a5d87] {
-    padding: 8mm;
+.v-container[data-v-9b164b98] {
+    padding: 10mm !important;
 }
 }
 @keyframes v-shake {
@@ -19549,4 +19549,8 @@ html.v-overlay-scroll-blocked {
 
 .text--monospace {
   font-family: "Source Code Pro", monospace;
+}
+
+.page-break--avoid {
+  page-break-inside: avoid;
 }

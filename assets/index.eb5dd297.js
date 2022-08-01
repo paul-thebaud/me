@@ -2209,6 +2209,9 @@ function invokeDirectiveHook(vnode, prevVNode, instance, name) {
 }
 const COMPONENTS = "components";
 const DIRECTIVES = "directives";
+function resolveComponent(name, maybeSelfReference) {
+  return resolveAsset(COMPONENTS, name, true, maybeSelfReference) || name;
+}
 const NULL_DYNAMIC_COMPONENT = Symbol();
 function resolveDynamicComponent(component) {
   if (isString$1(component)) {
@@ -8958,7 +8961,7 @@ const VBtn = defineComponent({
     return {};
   }
 });
-const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$i = /* @__PURE__ */ defineComponent$1({
   __name: "ResponsiveBtn",
   props: {
     label: {
@@ -14991,7 +14994,7 @@ const VMenu = genericComponent()({
     }, overlay);
   }
 });
-const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
   __name: "LocaleMenu",
   setup(__props) {
     useI18n();
@@ -15003,7 +15006,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VMenu, null, {
         activator: withCtx(({ props }) => [
-          createVNode(_sfc_main$h, mergeProps({
+          createVNode(_sfc_main$i, mergeProps({
             icon: unref(mdiEarth),
             label: unref(menuLabel)
           }, props), null, 16, ["icon", "label"])
@@ -15061,25 +15064,26 @@ function block0$b(Component) {
   });
 }
 if (typeof block0$b === "function")
-  block0$b(_sfc_main$g);
+  block0$b(_sfc_main$h);
 const store = reactive({
   printing: false
 });
-const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
   __name: "PrintBtn",
   setup(__props) {
     const { t } = useI18n();
     const onPrint = () => {
+      const prevFontSize = window.document.documentElement.style.fontSize;
       store.printing = true;
       window.document.documentElement.style.fontSize = "10px";
       setTimeout(() => {
         window.print();
-        window.document.documentElement.style.fontSize = "16px";
+        window.document.documentElement.style.fontSize = prevFontSize;
         store.printing = false;
       }, 250);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$h, {
+      return openBlock(), createBlock(_sfc_main$i, {
         icon: unref(mdiPrinterOutline),
         label: unref(t)("print"),
         loading: unref(store).printing,
@@ -15111,53 +15115,7 @@ function block0$a(Component) {
   });
 }
 if (typeof block0$a === "function")
-  block0$a(_sfc_main$f);
-const _hoisted_1$9 = { class: "d-sr-only" };
-const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
-  __name: "OpenInNewText",
-  setup(__props) {
-    const { t } = useI18n();
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("span", _hoisted_1$9, toDisplayString$1(unref(t)("openInNew")), 1);
-    };
-  }
-});
-function block0$9(Component) {
-  Component.__i18n = Component.__i18n || [];
-  Component.__i18n.push({
-    "locale": "",
-    "resource": {
-      "fr": {
-        "openInNew": (ctx) => {
-          const { normalize: _normalize } = ctx;
-          return _normalize(["(dans un nouvel onglet)"]);
-        }
-      },
-      "en": {
-        "openInNew": (ctx) => {
-          const { normalize: _normalize } = ctx;
-          return _normalize(["(in new tab)"]);
-        }
-      }
-    }
-  });
-}
-if (typeof block0$9 === "function")
-  block0$9(_sfc_main$e);
-const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
-  __name: "OpenInNewIcon",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock(Fragment, null, [
-        createVNode(_sfc_main$e),
-        createVNode(VIcon, mergeProps({
-          icon: unref(mdiOpenInNew),
-          class: "mb-2"
-        }, _ctx.$attrs), null, 16, ["icon"])
-      ], 64);
-    };
-  }
-});
+  block0$a(_sfc_main$g);
 const VCardActions = defineComponent({
   name: "VCardActions",
   setup(_, _ref) {
@@ -15603,8 +15561,8 @@ const VTimelineItem = defineComponent({
     return {};
   }
 });
-const _hoisted_1$8 = { class: "text-h5" };
-const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
+const _hoisted_1$9 = { class: "text-h5" };
+const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
   __name: "TimelineSection",
   props: {
     title: {
@@ -15623,7 +15581,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
         default: withCtx(() => [
           createVNode(VCardTitle, null, {
             default: withCtx(() => [
-              createBaseVNode("h2", _hoisted_1$8, toDisplayString$1(__props.title), 1)
+              createBaseVNode("h2", _hoisted_1$9, toDisplayString$1(__props.title), 1)
             ]),
             _: 1
           }),
@@ -15669,10 +15627,10 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-09d7d1b3"]]);
-const _hoisted_1$7 = { class: "text-h6" };
-const _hoisted_2$4 = { class: "font-weight-bold" };
-const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
+const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-09d7d1b3"]]);
+const _hoisted_1$8 = { class: "text-h6" };
+const _hoisted_2$5 = { class: "font-weight-bold" };
+const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
   __name: "EducationSection",
   setup(__props) {
     const { t } = useI18n();
@@ -15707,15 +15665,15 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
           createTextVNode(toDisplayString$1(item.date), 1)
         ]),
         item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$7, toDisplayString$1(item.title), 1),
-          createBaseVNode("span", _hoisted_2$4, toDisplayString$1(item.location), 1)
+          createBaseVNode("h3", _hoisted_1$8, toDisplayString$1(item.title), 1),
+          createBaseVNode("span", _hoisted_2$5, toDisplayString$1(item.location), 1)
         ]),
         _: 1
       }, 8, ["title"]);
     };
   }
 });
-function block0$8(Component) {
+function block0$9(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
     "locale": "",
@@ -15771,13 +15729,13 @@ function block0$8(Component) {
     }
   });
 }
-if (typeof block0$8 === "function")
-  block0$8(_sfc_main$b);
-const _hoisted_1$6 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
-const _hoisted_2$3 = { class: "text-h6" };
+if (typeof block0$9 === "function")
+  block0$9(_sfc_main$e);
+const _hoisted_1$7 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
+const _hoisted_2$4 = { class: "text-h6" };
 const _hoisted_3$2 = { class: "text-body-1" };
 const _hoisted_4$1 = { class: "font-weight-bold" };
-const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
   __name: "ExperienceSection",
   setup(__props) {
     const { t } = useI18n();
@@ -15825,12 +15783,12 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
         date: withCtx(({ item }) => [
           createTextVNode(toDisplayString$1(item.date) + " ", 1),
           item.duration ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-            _hoisted_1$6,
+            _hoisted_1$7,
             createTextVNode(" " + toDisplayString$1(item.duration), 1)
           ], 64)) : createCommentVNode("", true)
         ]),
         item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_2$3, toDisplayString$1(item.title), 1),
+          createBaseVNode("h3", _hoisted_2$4, toDisplayString$1(item.title), 1),
           createBaseVNode("p", _hoisted_3$2, toDisplayString$1(item.description), 1),
           createBaseVNode("span", _hoisted_4$1, toDisplayString$1(item.location), 1)
         ]),
@@ -15839,7 +15797,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-function block0$7(Component) {
+function block0$8(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
     "locale": "",
@@ -15961,11 +15919,11 @@ function block0$7(Component) {
     }
   });
 }
-if (typeof block0$7 === "function")
-  block0$7(_sfc_main$a);
-const _hoisted_1$5 = { class: "text-h5" };
-const _hoisted_2$2 = { class: "my-1" };
-const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
+if (typeof block0$8 === "function")
+  block0$8(_sfc_main$d);
+const _hoisted_1$6 = { class: "text-h5" };
+const _hoisted_2$3 = { class: "my-1" };
+const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
   __name: "CardSection",
   props: {
     title: {
@@ -15984,7 +15942,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
         default: withCtx(() => [
           createVNode(VCardTitle, null, {
             default: withCtx(() => [
-              createBaseVNode("h2", _hoisted_1$5, toDisplayString$1(__props.title), 1)
+              createBaseVNode("h2", _hoisted_1$6, toDisplayString$1(__props.title), 1)
             ]),
             _: 1
           }),
@@ -15999,7 +15957,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
                       role: "presentation",
                       class: "mx-n4"
                     }),
-                    createBaseVNode("div", _hoisted_2$2, [
+                    createBaseVNode("div", _hoisted_2$3, [
                       renderSlot(_ctx.$slots, "item", normalizeProps(guardReactiveProps({ item })))
                     ])
                   ], 64);
@@ -16274,7 +16232,7 @@ const VChip = defineComponent({
     };
   }
 });
-const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChip",
   props: {
     name: {
@@ -16312,8 +16270,8 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const _hoisted_1$4 = { class: "d-flex align-center flex-wrap" };
-const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
+const _hoisted_1$5 = { class: "d-flex align-center flex-wrap" };
+const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChipsList",
   props: {
     items: {
@@ -16323,9 +16281,9 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$4, [
+      return openBlock(), createElementBlock("div", _hoisted_1$5, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item, index) => {
-          return openBlock(), createBlock(_sfc_main$8, {
+          return openBlock(), createBlock(_sfc_main$b, {
             key: `items.${index}`,
             name: item.name,
             color: item.color,
@@ -16336,7 +16294,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
   __name: "HobbiesSection",
   setup(__props) {
     const { t } = useI18n();
@@ -16348,18 +16306,18 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
       { name: t("hobbies.videoGames"), color: "primary" }
     ];
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
+      return openBlock(), createBlock(_sfc_main$c, {
         title: unref(t)("title")
       }, {
         default: withCtx(() => [
-          createVNode(_sfc_main$7, { items: hobbies })
+          createVNode(_sfc_main$a, { items: hobbies })
         ]),
         _: 1
       }, 8, ["title"]);
     };
   }
 });
-function block0$6(Component) {
+function block0$7(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
     "locale": "",
@@ -16395,499 +16353,42 @@ function block0$6(Component) {
     }
   });
 }
-if (typeof block0$6 === "function")
-  block0$6(_sfc_main$6);
+if (typeof block0$7 === "function")
+  block0$7(_sfc_main$9);
 const profileJPG = "/me/assets/profile.50421d57.jpg";
 const profileWebP = "/me/assets/profile.186b84ea.webp";
-const _hoisted_1$3 = ["srcset"];
-const _hoisted_2$1 = { class: "w-100" };
-const _hoisted_3$1 = /* @__PURE__ */ createBaseVNode("h1", { class: "text-h4" }, " Paul Th\xE9baud ", -1);
-const _hoisted_4 = { class: "text-body-1 mb-2" };
-const _hoisted_5 = { class: "d-flex flex-column flex-sm-row align-sm-center justify-sm-space-between" };
-const _hoisted_6 = /* @__PURE__ */ createTextVNode(" paul.thebaud29@gmail.com ");
-const _hoisted_7 = /* @__PURE__ */ createTextVNode(" GitHub ");
-const _hoisted_8 = { class: "d-flex flex-column flex-sm-row align-sm-center justify-sm-space-between" };
-const _hoisted_9 = /* @__PURE__ */ createTextVNode(" LinkedIn ");
-const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
-  __name: "IntroductionSection",
+const _hoisted_1$4 = { class: "d-sr-only" };
+const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
+  __name: "OpenInNewText",
   setup(__props) {
     const { t } = useI18n();
-    const { width } = useDisplay();
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(VCard, null, {
-        default: withCtx(() => [
-          createBaseVNode("div", {
-            class: normalizeClass([{ "flex-wrap": unref(width) <= 500 && !unref(store).printing }, "d-flex"])
-          }, [
-            createVNode(VImg, {
-              src: unref(profileJPG),
-              class: "align-self-stretch",
-              "max-height": "50vh",
-              width: "148",
-              cover: ""
-            }, {
-              sources: withCtx(() => [
-                createBaseVNode("source", { srcset: unref(profileWebP) }, null, 8, _hoisted_1$3)
-              ]),
-              _: 1
-            }, 8, ["src"]),
-            createBaseVNode("div", _hoisted_2$1, [
-              createVNode(VCardTitle, null, {
-                default: withCtx(() => [
-                  _hoisted_3$1
-                ]),
-                _: 1
-              }),
-              createVNode(VCardText, null, {
-                default: withCtx(() => [
-                  createBaseVNode("p", _hoisted_4, toDisplayString$1(unref(t)("description")), 1),
-                  createBaseVNode("div", _hoisted_5, [
-                    createVNode(VBtn, {
-                      "prepend-icon": unref(mdiEmailOutline),
-                      href: "mailto:paul.thebaud29@gmail.com",
-                      variant: "text",
-                      color: "primary",
-                      size: "small"
-                    }, {
-                      default: withCtx(() => [
-                        _hoisted_6
-                      ]),
-                      _: 1
-                    }, 8, ["prepend-icon"]),
-                    createVNode(VBtn, {
-                      "prepend-icon": unref(mdiGithub),
-                      href: "https://github.com/paul-thebaud",
-                      target: "_blank",
-                      rel: "noreferrer nofollow",
-                      variant: "text",
-                      color: "primary",
-                      size: "small"
-                    }, {
-                      default: withCtx(() => [
-                        _hoisted_7,
-                        createVNode(_sfc_main$e)
-                      ]),
-                      _: 1
-                    }, 8, ["prepend-icon"])
-                  ]),
-                  createBaseVNode("div", _hoisted_8, [
-                    createVNode(VBtn, {
-                      "prepend-icon": unref(mdiPhoneOutline),
-                      href: "tel:+33770796098",
-                      variant: "text",
-                      color: "primary",
-                      size: "small"
-                    }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString$1(unref(t)("phone")), 1)
-                      ]),
-                      _: 1
-                    }, 8, ["prepend-icon"]),
-                    createVNode(VBtn, {
-                      "prepend-icon": unref(mdiLinkedin),
-                      href: "https://linkedin.com/in/paul-thebaud/",
-                      target: "_blank",
-                      rel: "noreferrer nofollow",
-                      variant: "text",
-                      color: "primary",
-                      size: "small"
-                    }, {
-                      default: withCtx(() => [
-                        _hoisted_9,
-                        createVNode(_sfc_main$e)
-                      ]),
-                      _: 1
-                    }, 8, ["prepend-icon"])
-                  ])
-                ]),
-                _: 1
-              })
-            ])
-          ], 2)
-        ]),
-        _: 1
-      });
+      return openBlock(), createElementBlock("span", _hoisted_1$4, toDisplayString$1(unref(t)("openInNew")), 1);
     };
   }
 });
-function block0$5(Component) {
+function block0$6(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
     "locale": "",
     "resource": {
       "fr": {
-        "description": (ctx) => {
+        "openInNew": (ctx) => {
           const { normalize: _normalize } = ctx;
-          return _normalize(["Actuellement r\xE9f\xE9rent en d\xE9veloppement et accessibilit\xE9 num\xE9rique au CoWork'HIT, je suis un passion\xE9 de d\xE9veloppement Web, d'accessibilit\xE9 et d'open source."]);
-        },
-        "phone": (ctx) => {
+          return _normalize(["(dans un nouvel onglet)"]);
+        }
+      },
+      "en": {
+        "openInNew": (ctx) => {
           const { normalize: _normalize } = ctx;
-          return _normalize(["07 70 79 60 98"]);
+          return _normalize(["(in new tab)"]);
         }
       }
     }
   });
 }
-if (typeof block0$5 === "function")
-  block0$5(_sfc_main$5);
-const tools = {
-  LINUX: {
-    name: "Linux (Ubuntu)",
-    color: "orange"
-  },
-  WINDOWS: {
-    name: "Windows",
-    color: "indigo"
-  },
-  MACOS: {
-    name: "macOS",
-    color: "purple"
-  },
-  PHP: {
-    name: "PHP",
-    color: "deep-purple-lighten-2"
-  },
-  LARAVEL: {
-    name: "Laravel",
-    color: "red-lighten-1"
-  },
-  LUMEN: {
-    name: "Lumen",
-    color: "red-lighten-1"
-  },
-  JS: {
-    name: "JS",
-    color: "yellow-darken-3"
-  },
-  TS: {
-    name: "TS",
-    color: "blue"
-  },
-  SASS: {
-    name: "SASS",
-    color: "purple-lighten-1"
-  },
-  VITE: {
-    name: "Vite",
-    color: "purple-accent-3"
-  },
-  WEBPACK: {
-    name: "Webpack",
-    color: "blue-lighten-1"
-  },
-  VUE: {
-    name: "Vue",
-    color: "green"
-  },
-  VUETIFY: {
-    name: "Vuetify",
-    color: "indigo"
-  },
-  REACT: {
-    name: "React",
-    color: "light-blue-lighten-2"
-  },
-  POSTGRESQL: {
-    name: "PostgreSQL",
-    color: "indigo"
-  },
-  MYSQL: {
-    name: "MySQL",
-    color: "orange"
-  },
-  SQLITE: {
-    name: "SQLite",
-    color: "blue"
-  },
-  GIT: {
-    name: "Git",
-    color: "deep-orange"
-  },
-  GITHUB: {
-    name: "GitHub",
-    color: "blue-grey-darken-4"
-  },
-  GIT_KRAKEN: {
-    name: "Git Kraken",
-    color: "cyan-darken-4"
-  },
-  HEROKU: {
-    name: "Heroku",
-    color: "purple-lighten-1"
-  },
-  GITHUB_ACTIONS: {
-    name: "GitHub Actions",
-    color: "blue-grey-darken-4"
-  },
-  PHPUNIT: {
-    name: "PHPUnit",
-    color: "blue-darken-3"
-  },
-  JEST: {
-    name: "JEST",
-    color: "green"
-  },
-  CYPRESS: {
-    name: "Cypress",
-    color: "green"
-  },
-  PHPSTORM: {
-    name: "PHPStorm",
-    color: "purple-accent-3"
-  }
-};
-const _hoisted_1$2 = { class: "d-flex align-center justify-space-between text-h6" };
-const _hoisted_2 = ["href"];
-const _hoisted_3 = { class: "text-body-2 mb-2" };
-const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
-  __name: "ProjectsSection",
-  setup(__props) {
-    const { t } = useI18n();
-    const projects = [
-      {
-        category: t("categories.pro"),
-        title: "LifeCompanion",
-        description: t("projects.lifeCompanion.description"),
-        tools: [tools.PHP, tools.LARAVEL, tools.JS, tools.VUE, tools.VUETIFY],
-        website: {
-          name: "lifecompanionaac.org",
-          url: "https://lifecompanionaac.org"
-        }
-      },
-      {
-        category: t("categories.pro"),
-        title: "REHAB-LAB",
-        description: t("projects.rehabLab.description"),
-        tools: [tools.PHP, tools.LARAVEL, tools.JS, tools.VUE, tools.VUETIFY],
-        website: {
-          name: "rehab-lab.org",
-          url: "https://rehab-lab.org"
-        }
-      },
-      {
-        category: t("categories.perso"),
-        title: "v-phone-input",
-        description: t("projects.vPhoneInput.description"),
-        tools: [tools.TS, tools.VITE, tools.VUE, tools.VUETIFY],
-        website: {
-          name: "github.io/v-phone-input",
-          url: "https://paul-thebaud.github.io/v-phone-input"
-        }
-      },
-      {
-        category: t("categories.perso"),
-        title: "PhpUnitGen",
-        description: t("projects.phpUnitGen.description"),
-        tools: [tools.PHP, tools.LUMEN, tools.TS, tools.VUE],
-        website: {
-          name: "github.io/v-phone-input",
-          url: "https://paul-thebaud.github.io/v-phone-input"
-        }
-      }
-    ];
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
-        title: unref(t)("title"),
-        items: projects
-      }, {
-        item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$2, [
-            createBaseVNode("a", {
-              href: item.website.url,
-              target: "_blank",
-              rel: "noreferrer nofollow"
-            }, [
-              createTextVNode(toDisplayString$1(item.title) + " ", 1),
-              createVNode(_sfc_main$d, { size: "1rem" })
-            ], 8, _hoisted_2),
-            createVNode(_sfc_main$8, {
-              name: item.category,
-              color: "secondary"
-            }, null, 8, ["name"])
-          ]),
-          createBaseVNode("p", _hoisted_3, toDisplayString$1(item.description), 1),
-          createVNode(_sfc_main$7, {
-            items: item.tools
-          }, null, 8, ["items"])
-        ]),
-        _: 1
-      }, 8, ["title"]);
-    };
-  }
-});
-function block0$4(Component) {
-  Component.__i18n = Component.__i18n || [];
-  Component.__i18n.push({
-    "locale": "",
-    "resource": {
-      "fr": {
-        "title": (ctx) => {
-          const { normalize: _normalize } = ctx;
-          return _normalize(["Projets"]);
-        },
-        "categories": {
-          "pro": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["pro."]);
-          },
-          "perso": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["perso."]);
-          }
-        },
-        "projects": {
-          "lifeCompanion": {
-            "description": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["D\xE9veloppement d'une plateforme accessible avec serveur de statistiques et graphiques associ\xE9s pour le suivi d'un logiciel client lourd."]);
-            }
-          },
-          "rehabLab": {
-            "description": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["D\xE9veloppement d'une plateforme accessible avec outils de confort et outils communautaire (forum, commentaires, etc.). Automatisation de processus li\xE9s \xE0 la communaut\xE9."]);
-            }
-          },
-          "vPhoneInput": {
-            "description": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["Librairie de champ de formulaire accessible pour la saisie d'un num\xE9ro de t\xE9l\xE9phone international accessible."]);
-            }
-          },
-          "phpUnitGen": {
-            "description": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["G\xE9n\xE9rateur de squelettes de tests unitaires avec de nombreuses options de configuration et une g\xE9n\xE9ration contextuelle."]);
-            }
-          }
-        }
-      }
-    }
-  });
-}
-if (typeof block0$4 === "function")
-  block0$4(_sfc_main$4);
-const _hoisted_1$1 = { class: "text-h6" };
-const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
-  __name: "SkillsSection",
-  setup(__props) {
-    const { t } = useI18n();
-    const skills = [
-      {
-        title: t("categories.systems"),
-        tools: [tools.LINUX, tools.MACOS, tools.WINDOWS]
-      },
-      {
-        title: t("categories.programmingLanguages"),
-        tools: [tools.PHP, tools.JS, tools.TS]
-      },
-      {
-        title: t("categories.frameworks"),
-        tools: [tools.LARAVEL, tools.VUE, tools.VUETIFY, tools.REACT]
-      },
-      {
-        title: t("categories.database"),
-        tools: [tools.POSTGRESQL, tools.SQLITE, tools.MYSQL]
-      },
-      {
-        title: t("categories.versioning"),
-        tools: [tools.GIT, tools.GITHUB, tools.GIT_KRAKEN]
-      },
-      {
-        title: t("categories.projects"),
-        tools: [
-          { name: "Etude des besoins", color: "primary" },
-          { name: "Sp\xE9cifications fonctionnelles", color: "primary" }
-        ]
-      },
-      {
-        title: t("categories.others"),
-        tools: [
-          tools.HEROKU,
-          tools.GITHUB_ACTIONS,
-          tools.SASS,
-          tools.VITE,
-          tools.WEBPACK,
-          tools.PHPUNIT,
-          tools.JEST,
-          tools.CYPRESS,
-          tools.PHPSTORM
-        ]
-      },
-      {
-        title: t("categories.languages"),
-        tools: [
-          { name: "Fran\xE7ais", color: "indigo" },
-          { name: "Anglais (CLES en 2018)", color: "red" }
-        ]
-      }
-    ];
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$9, {
-        title: unref(t)("title"),
-        items: skills
-      }, {
-        item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$1, toDisplayString$1(item.title), 1),
-          createVNode(_sfc_main$7, {
-            items: item.tools
-          }, null, 8, ["items"])
-        ]),
-        _: 1
-      }, 8, ["title"]);
-    };
-  }
-});
-function block0$3(Component) {
-  Component.__i18n = Component.__i18n || [];
-  Component.__i18n.push({
-    "locale": "",
-    "resource": {
-      "fr": {
-        "title": (ctx) => {
-          const { normalize: _normalize } = ctx;
-          return _normalize(["Comp\xE9tences"]);
-        },
-        "categories": {
-          "systems": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Syst\xE8mes"]);
-          },
-          "programmingLanguages": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Langages de programmation"]);
-          },
-          "frameworks": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Frameworks"]);
-          },
-          "database": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Bases de donn\xE9es"]);
-          },
-          "versioning": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Versioning"]);
-          },
-          "projects": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Projets"]);
-          },
-          "others": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Autres"]);
-          },
-          "languages": (ctx) => {
-            const { normalize: _normalize } = ctx;
-            return _normalize(["Langues"]);
-          }
-        }
-      }
-    }
-  });
-}
-if (typeof block0$3 === "function")
-  block0$3(_sfc_main$3);
+if (typeof block0$6 === "function")
+  block0$6(_sfc_main$8);
 const VContainer = defineComponent({
   name: "VContainer",
   props: {
@@ -17124,61 +16625,547 @@ const VRow = defineComponent({
   }
 });
 const VSpacer = createSimpleFunctional("flex-grow-1", "div", "VSpacer");
-const _hoisted_1 = {
-  key: 0,
-  class: "d-flex justify-end mb-2"
-};
-const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
-  __name: "ResumeContent",
+const _hoisted_1$3 = ["srcset"];
+const _hoisted_2$2 = { class: "w-100" };
+const _hoisted_3$1 = /* @__PURE__ */ createBaseVNode("h1", { class: "text-h4" }, " Paul Th\xE9baud ", -1);
+const _hoisted_4 = { class: "text-body-1 mb-2" };
+const _hoisted_5 = /* @__PURE__ */ createTextVNode(" paul.thebaud29@gmail.com ");
+const _hoisted_6 = /* @__PURE__ */ createTextVNode(" GitHub ");
+const _hoisted_7 = /* @__PURE__ */ createTextVNode(" LinkedIn ");
+const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
+  __name: "IntroductionSection",
   setup(__props) {
     const { t } = useI18n();
-    const leftColumnSize = computed(() => store.printing ? 7 : 12);
-    const rightColumnSize = computed(() => store.printing ? 5 : 12);
+    const { mobile, width } = useDisplay();
+    computed(() => mobile.value && !store.printing ? 12 : 6);
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", null, [
-        unref(store).printing ? (openBlock(), createElementBlock("div", _hoisted_1, [
-          createVNode(VBtn, {
-            href: "https://paul-thebaud.github.io/me/",
-            target: "_blank",
-            rel: "noreferrer nofollow",
-            variant: "text",
-            size: "small"
-          }, {
-            default: withCtx(() => [
-              createTextVNode(toDisplayString$1(unref(t)("seeWebVersion")) + " ", 1),
-              createVNode(_sfc_main$d, { size: "0.75rem" })
-            ]),
-            _: 1
-          })
-        ])) : createCommentVNode("", true),
-        createVNode(VRow, { dense: "" }, {
+      return openBlock(), createBlock(VCard, null, {
+        default: withCtx(() => [
+          createBaseVNode("div", {
+            class: normalizeClass([{ "flex-wrap": unref(width) <= 500 && !unref(store).printing }, "d-flex"])
+          }, [
+            createVNode(VImg, {
+              src: unref(profileJPG),
+              class: "align-self-stretch",
+              "max-height": "50vh",
+              width: "148",
+              cover: ""
+            }, {
+              sources: withCtx(() => [
+                createBaseVNode("source", { srcset: unref(profileWebP) }, null, 8, _hoisted_1$3)
+              ]),
+              _: 1
+            }, 8, ["src"]),
+            createBaseVNode("div", _hoisted_2$2, [
+              createVNode(VCardTitle, null, {
+                default: withCtx(() => [
+                  _hoisted_3$1
+                ]),
+                _: 1
+              }),
+              createVNode(VCardText, null, {
+                default: withCtx(() => [
+                  createBaseVNode("p", _hoisted_4, toDisplayString$1(unref(t)("description")), 1),
+                  createVNode(VRow, { "no-gutters": "" }, {
+                    default: withCtx(() => [
+                      createVNode(VCol, { class: "d-flex flex-column align-start" }, {
+                        default: withCtx(() => [
+                          createVNode(VBtn, {
+                            "prepend-icon": unref(mdiEmailOutline),
+                            href: "mailto:paul.thebaud29@gmail.com",
+                            variant: "text",
+                            color: "primary",
+                            size: "small"
+                          }, {
+                            default: withCtx(() => [
+                              _hoisted_5
+                            ]),
+                            _: 1
+                          }, 8, ["prepend-icon"]),
+                          createVNode(VBtn, {
+                            "prepend-icon": unref(mdiPhoneOutline),
+                            href: "tel:+33770796098",
+                            variant: "text",
+                            color: "primary",
+                            size: "small"
+                          }, {
+                            default: withCtx(() => [
+                              createTextVNode(toDisplayString$1(unref(t)("phone")), 1)
+                            ]),
+                            _: 1
+                          }, 8, ["prepend-icon"])
+                        ]),
+                        _: 1
+                      }),
+                      createVNode(VCol, {
+                        class: normalizeClass([{ "text-right": !unref(mobile) || unref(store).printing }, "d-flex flex-column align-start"])
+                      }, {
+                        default: withCtx(() => [
+                          createVNode(VBtn, {
+                            "prepend-icon": unref(mdiGithub),
+                            href: "https://github.com/paul-thebaud",
+                            target: "_blank",
+                            rel: "noreferrer nofollow",
+                            variant: "text",
+                            color: "primary",
+                            size: "small"
+                          }, {
+                            default: withCtx(() => [
+                              _hoisted_6,
+                              createVNode(_sfc_main$8)
+                            ]),
+                            _: 1
+                          }, 8, ["prepend-icon"]),
+                          createVNode(VBtn, {
+                            "prepend-icon": unref(mdiLinkedin),
+                            href: "https://linkedin.com/in/paul-thebaud/",
+                            target: "_blank",
+                            rel: "noreferrer nofollow",
+                            variant: "text",
+                            color: "primary",
+                            size: "small"
+                          }, {
+                            default: withCtx(() => [
+                              _hoisted_7,
+                              createVNode(_sfc_main$8)
+                            ]),
+                            _: 1
+                          }, 8, ["prepend-icon"])
+                        ]),
+                        _: 1
+                      }, 8, ["class"])
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ])
+          ], 2)
+        ]),
+        _: 1
+      });
+    };
+  }
+});
+function block0$5(Component) {
+  Component.__i18n = Component.__i18n || [];
+  Component.__i18n.push({
+    "locale": "",
+    "resource": {
+      "fr": {
+        "description": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Actuellement r\xE9f\xE9rent en d\xE9veloppement et accessibilit\xE9 num\xE9rique au CoWork'HIT, je suis un passion\xE9 de d\xE9veloppement Web, d'accessibilit\xE9 et d'open source."]);
+        },
+        "phone": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["07 70 79 60 98"]);
+        }
+      }
+    }
+  });
+}
+if (typeof block0$5 === "function")
+  block0$5(_sfc_main$7);
+const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
+  __name: "OpenInNewIcon",
+  setup(__props) {
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock(Fragment, null, [
+        createVNode(_sfc_main$8),
+        createVNode(VIcon, mergeProps({
+          icon: unref(mdiOpenInNew),
+          class: "mb-2"
+        }, _ctx.$attrs), null, 16, ["icon"])
+      ], 64);
+    };
+  }
+});
+const tools = {
+  LINUX: {
+    name: "Linux (Ubuntu)",
+    color: "orange"
+  },
+  WINDOWS: {
+    name: "Windows",
+    color: "indigo"
+  },
+  MACOS: {
+    name: "macOS",
+    color: "purple"
+  },
+  PHP: {
+    name: "PHP",
+    color: "deep-purple-lighten-2"
+  },
+  LARAVEL: {
+    name: "Laravel",
+    color: "red-lighten-1"
+  },
+  LUMEN: {
+    name: "Lumen",
+    color: "red-lighten-1"
+  },
+  JS: {
+    name: "JS",
+    color: "yellow-darken-3"
+  },
+  TS: {
+    name: "TS",
+    color: "blue"
+  },
+  SASS: {
+    name: "SASS",
+    color: "purple-lighten-1"
+  },
+  VITE: {
+    name: "Vite",
+    color: "purple-accent-3"
+  },
+  WEBPACK: {
+    name: "Webpack",
+    color: "blue-lighten-1"
+  },
+  VUE: {
+    name: "Vue",
+    color: "green"
+  },
+  VUETIFY: {
+    name: "Vuetify",
+    color: "indigo"
+  },
+  REACT: {
+    name: "React",
+    color: "light-blue-lighten-2"
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    color: "indigo"
+  },
+  MYSQL: {
+    name: "MySQL",
+    color: "orange"
+  },
+  SQLITE: {
+    name: "SQLite",
+    color: "blue"
+  },
+  GIT: {
+    name: "Git",
+    color: "deep-orange"
+  },
+  GITHUB: {
+    name: "GitHub",
+    color: "blue-grey-darken-4"
+  },
+  GIT_KRAKEN: {
+    name: "Git Kraken",
+    color: "cyan-darken-4"
+  },
+  HEROKU: {
+    name: "Heroku",
+    color: "purple-lighten-1"
+  },
+  GITHUB_ACTIONS: {
+    name: "GitHub Actions",
+    color: "blue-grey-darken-4"
+  },
+  PHPUNIT: {
+    name: "PHPUnit",
+    color: "blue-darken-3"
+  },
+  JEST: {
+    name: "JEST",
+    color: "green"
+  },
+  CYPRESS: {
+    name: "Cypress",
+    color: "green"
+  },
+  PHPSTORM: {
+    name: "PHPStorm",
+    color: "purple-accent-3"
+  }
+};
+const _hoisted_1$2 = { class: "d-flex align-center justify-space-between text-h6" };
+const _hoisted_2$1 = ["href"];
+const _hoisted_3 = { class: "text-body-2 mb-2" };
+const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
+  __name: "ProjectsSection",
+  setup(__props) {
+    const { t } = useI18n();
+    const projects = [
+      {
+        category: t("categories.pro"),
+        title: "LifeCompanion",
+        description: t("projects.lifeCompanion.description"),
+        tools: [tools.PHP, tools.LARAVEL, tools.JS, tools.VUE, tools.VUETIFY],
+        website: {
+          name: "lifecompanionaac.org",
+          url: "https://lifecompanionaac.org"
+        }
+      },
+      {
+        category: t("categories.pro"),
+        title: "REHAB-LAB",
+        description: t("projects.rehabLab.description"),
+        tools: [tools.PHP, tools.LARAVEL, tools.JS, tools.VUE, tools.VUETIFY],
+        website: {
+          name: "rehab-lab.org",
+          url: "https://rehab-lab.org"
+        }
+      },
+      {
+        category: t("categories.perso"),
+        title: "v-phone-input",
+        description: t("projects.vPhoneInput.description"),
+        tools: [tools.TS, tools.VITE, tools.VUE, tools.VUETIFY],
+        website: {
+          name: "github.io/v-phone-input",
+          url: "https://paul-thebaud.github.io/v-phone-input"
+        }
+      },
+      {
+        category: t("categories.perso"),
+        title: "PhpUnitGen",
+        description: t("projects.phpUnitGen.description"),
+        tools: [tools.PHP, tools.LUMEN, tools.TS, tools.VUE],
+        website: {
+          name: "github.io/v-phone-input",
+          url: "https://paul-thebaud.github.io/v-phone-input"
+        }
+      }
+    ];
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(_sfc_main$c, {
+        title: unref(t)("title"),
+        items: projects
+      }, {
+        item: withCtx(({ item }) => [
+          createBaseVNode("h3", _hoisted_1$2, [
+            createBaseVNode("a", {
+              href: item.website.url,
+              target: "_blank",
+              rel: "noreferrer nofollow"
+            }, [
+              createTextVNode(toDisplayString$1(item.title) + " ", 1),
+              createVNode(_sfc_main$6, { size: "1rem" })
+            ], 8, _hoisted_2$1),
+            createVNode(_sfc_main$b, {
+              name: item.category,
+              color: "secondary"
+            }, null, 8, ["name"])
+          ]),
+          createBaseVNode("p", _hoisted_3, toDisplayString$1(item.description), 1),
+          createVNode(_sfc_main$a, {
+            items: item.tools
+          }, null, 8, ["items"])
+        ]),
+        _: 1
+      }, 8, ["title"]);
+    };
+  }
+});
+function block0$4(Component) {
+  Component.__i18n = Component.__i18n || [];
+  Component.__i18n.push({
+    "locale": "",
+    "resource": {
+      "fr": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Projets"]);
+        },
+        "categories": {
+          "pro": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["pro."]);
+          },
+          "perso": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["perso."]);
+          }
+        },
+        "projects": {
+          "lifeCompanion": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["D\xE9veloppement d'une plateforme accessible avec serveur de statistiques pour le suivi d'un logiciel d'aide \xE0 la communication."]);
+            }
+          },
+          "rehabLab": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["D\xE9veloppement d'une plateforme accessible avec outils de confort et communautaires (forum, commentaires, etc.). Automatisation de processus li\xE9s \xE0 la communaut\xE9."]);
+            }
+          },
+          "vPhoneInput": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Librairie de champ de formulaire accessible pour la saisie d'un num\xE9ro de t\xE9l\xE9phone international accessible."]);
+            }
+          },
+          "phpUnitGen": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["G\xE9n\xE9rateur de squelettes de tests unitaires avec de nombreuses options de configuration et une g\xE9n\xE9ration contextuelle."]);
+            }
+          }
+        }
+      }
+    }
+  });
+}
+if (typeof block0$4 === "function")
+  block0$4(_sfc_main$5);
+const _hoisted_1$1 = { class: "text-h6" };
+const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
+  __name: "SkillsSection",
+  setup(__props) {
+    const { t } = useI18n();
+    const skills = [
+      {
+        title: t("categories.systems"),
+        tools: [tools.LINUX, tools.MACOS, tools.WINDOWS]
+      },
+      {
+        title: t("categories.programmingLanguages"),
+        tools: [tools.PHP, tools.JS, tools.TS]
+      },
+      {
+        title: t("categories.frameworks"),
+        tools: [tools.LARAVEL, tools.VUE, tools.VUETIFY, tools.REACT]
+      },
+      {
+        title: t("categories.database"),
+        tools: [tools.POSTGRESQL, tools.SQLITE, tools.MYSQL]
+      },
+      {
+        title: t("categories.versioning"),
+        tools: [tools.GIT, tools.GITHUB, tools.GIT_KRAKEN]
+      },
+      {
+        title: t("categories.others"),
+        tools: [
+          { name: "Etude des besoins", color: "primary" },
+          { name: "Sp\xE9cifications fonctionnelles", color: "primary" },
+          tools.HEROKU,
+          tools.GITHUB_ACTIONS,
+          tools.SASS,
+          tools.VITE,
+          tools.WEBPACK,
+          tools.PHPUNIT,
+          tools.JEST,
+          tools.CYPRESS,
+          tools.PHPSTORM
+        ]
+      },
+      {
+        title: t("categories.languages"),
+        tools: [
+          { name: "Fran\xE7ais", color: "indigo" },
+          { name: "Anglais (CLES en 2018)", color: "red" }
+        ]
+      }
+    ];
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(_sfc_main$c, {
+        title: unref(t)("title"),
+        items: skills
+      }, {
+        item: withCtx(({ item }) => [
+          createBaseVNode("h3", _hoisted_1$1, toDisplayString$1(item.title), 1),
+          createVNode(_sfc_main$a, {
+            items: item.tools
+          }, null, 8, ["items"])
+        ]),
+        _: 1
+      }, 8, ["title"]);
+    };
+  }
+});
+function block0$3(Component) {
+  Component.__i18n = Component.__i18n || [];
+  Component.__i18n.push({
+    "locale": "",
+    "resource": {
+      "fr": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Comp\xE9tences"]);
+        },
+        "categories": {
+          "systems": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Syst\xE8mes"]);
+          },
+          "programmingLanguages": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Langages de programmation"]);
+          },
+          "frameworks": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Frameworks"]);
+          },
+          "database": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Bases de donn\xE9es"]);
+          },
+          "versioning": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Versioning"]);
+          },
+          "projects": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Projets"]);
+          },
+          "others": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Autres"]);
+          },
+          "languages": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Langues"]);
+          }
+        }
+      }
+    }
+  });
+}
+if (typeof block0$3 === "function")
+  block0$3(_sfc_main$4);
+const _hoisted_1 = {
+  key: 0,
+  class: "text-center"
+};
+const _hoisted_2 = {
+  class: "text-primary",
+  href: "https://paul-thebaud.github.io/me/",
+  target: "_blank",
+  rel: "noreferrer nofollow"
+};
+const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
+  __name: "WebVersionSection",
+  setup(__props) {
+    const { t } = useI18n();
+    return (_ctx, _cache) => {
+      const _component_i18n_t = resolveComponent("i18n-t");
+      return unref(store).printing ? (openBlock(), createElementBlock("div", _hoisted_1, [
+        createVNode(_component_i18n_t, {
+          keypath: "seeWebVersion",
+          tag: "label",
+          for: "tos"
+        }, {
           default: withCtx(() => [
-            createVNode(VCol, {
-              cols: unref(leftColumnSize),
-              md: "7"
-            }, {
-              default: withCtx(() => [
-                createVNode(_sfc_main$5, { class: "mb-2" }),
-                createVNode(_sfc_main$a, { class: "mb-2" }),
-                createVNode(_sfc_main$b)
-              ]),
-              _: 1
-            }, 8, ["cols"]),
-            createVNode(VCol, {
-              cols: unref(rightColumnSize),
-              md: "5"
-            }, {
-              default: withCtx(() => [
-                createVNode(_sfc_main$4, { class: "mb-2" }),
-                createVNode(_sfc_main$3, { class: "mb-2" }),
-                createVNode(_sfc_main$6)
-              ]),
-              _: 1
-            }, 8, ["cols"])
+            createBaseVNode("a", _hoisted_2, [
+              createTextVNode(toDisplayString$1(unref(t)("webVersion")) + " ", 1),
+              createVNode(_sfc_main$6, { size: "0.75rem" })
+            ])
           ]),
           _: 1
         })
-      ]);
+      ])) : createCommentVNode("", true);
     };
   }
 });
@@ -17189,21 +17176,69 @@ function block0$2(Component) {
     "resource": {
       "fr": {
         "seeWebVersion": (ctx) => {
+          const { normalize: _normalize, interpolate: _interpolate, list: _list } = ctx;
+          return _normalize(["Vous pouvez consulter ", _interpolate(_list(0)), " avec de meilleures options de contrastes."]);
+        },
+        "webVersion": (ctx) => {
           const { normalize: _normalize } = ctx;
-          return _normalize(["Consulter ce CV sur github.io"]);
+          return _normalize(["une version Web de ce CV"]);
         }
       },
       "en": {
         "seeWebVersion": (ctx) => {
+          const { normalize: _normalize, interpolate: _interpolate, list: _list } = ctx;
+          return _normalize(["You can check out ", _interpolate(_list(0)), " with better contrast options."]);
+        },
+        "webVersion": (ctx) => {
           const { normalize: _normalize } = ctx;
-          return _normalize(["Check this resume on github.io"]);
+          return _normalize(["a Web version of this resume"]);
         }
       }
     }
   });
 }
 if (typeof block0$2 === "function")
-  block0$2(_sfc_main$2);
+  block0$2(_sfc_main$3);
+const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
+  __name: "ResumeContent",
+  setup(__props) {
+    useI18n();
+    const leftColumnSize = computed(() => store.printing ? 7 : 12);
+    const rightColumnSize = computed(() => store.printing ? 5 : 12);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", null, [
+        createVNode(_sfc_main$3, { class: "mb-1" }),
+        createVNode(VRow, { dense: "" }, {
+          default: withCtx(() => [
+            createVNode(VCol, {
+              cols: unref(leftColumnSize),
+              md: "7"
+            }, {
+              default: withCtx(() => [
+                createVNode(_sfc_main$7, { class: "page-break--avoid" }),
+                createVNode(_sfc_main$d, { class: "page-break--avoid mt-2" }),
+                createVNode(_sfc_main$e, { class: "page-break--avoid mt-2" })
+              ]),
+              _: 1
+            }, 8, ["cols"]),
+            createVNode(VCol, {
+              cols: unref(rightColumnSize),
+              md: "5"
+            }, {
+              default: withCtx(() => [
+                createVNode(_sfc_main$5, { class: "page-break--avoid" }),
+                createVNode(_sfc_main$4, { class: "page-break--avoid mt-2" }),
+                createVNode(_sfc_main$9, { class: "page-break--avoid mt-2" })
+              ]),
+              _: 1
+            }, 8, ["cols"])
+          ]),
+          _: 1
+        })
+      ]);
+    };
+  }
+});
 const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
   __name: "ThemeMenu",
   setup(__props) {
@@ -17216,7 +17251,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VMenu, null, {
         activator: withCtx(({ props }) => [
-          createVNode(_sfc_main$h, mergeProps({
+          createVNode(_sfc_main$i, mergeProps({
             icon: unref(mdiPalette),
             label: unref(t)(`themes.${unref(theme).global.name.value}`),
             variant: "tonal"
@@ -17591,9 +17626,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
             app: ""
           }, {
             default: withCtx(() => [
-              createVNode(_sfc_main$f),
-              createVNode(VSpacer),
               createVNode(_sfc_main$g),
+              createVNode(VSpacer),
+              createVNode(_sfc_main$h),
               createVNode(_sfc_main$1, { class: "ml-2" })
             ]),
             _: 1
@@ -17615,7 +17650,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_ae4a5d87_lang = "";
+const App_vue_vue_type_style_index_0_scoped_9b164b98_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -17658,7 +17693,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-ae4a5d87"]]);
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9b164b98"]]);
 function changeLocale(locale) {
   i18n.global.locale.value = locale;
   document.documentElement.setAttribute("lang", locale);
