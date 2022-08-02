@@ -17728,10 +17728,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
               createVNode(VContainer, null, {
                 default: withCtx(() => [
                   createBaseVNode("header", _hoisted_1, [
-                    createVNode(_sfc_main$f),
-                    createVNode(VSpacer),
                     createVNode(_sfc_main$g),
-                    createVNode(_sfc_main$1, { class: "ml-2" })
+                    createVNode(_sfc_main$1, { class: "ml-2" }),
+                    createVNode(VSpacer),
+                    createVNode(_sfc_main$f)
                   ]),
                   createVNode(_sfc_main$2)
                 ]),
@@ -17746,7 +17746,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_d77d6c67_lang = "";
+const App_vue_vue_type_style_index_0_scoped_a5fc4e26_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -17789,7 +17789,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d77d6c67"]]);
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a5fc4e26"]]);
 function defaultLocale() {
   let defaultLocale2 = locales.fr.id;
   (window.navigator.languages || []).some((language) => {

@@ -6,7 +6,7 @@
 }.v-card > .v-card__loader {
   display: none !important;
 }
-.v-container[data-v-d77d6c67] {
+.v-container[data-v-a5fc4e26] {
   max-width: 1100px !important;
 }
 @media print {
@@ -14,10 +14,10 @@
     size: 210mm 297mm;
     margin: 0;
 }
-.v-main[data-v-d77d6c67] {
+.v-main[data-v-a5fc4e26] {
     padding: 0 !important;
 }
-.v-container[data-v-d77d6c67] {
+.v-container[data-v-a5fc4e26] {
     padding: 10mm !important;
 }
 }
@@ -18952,7 +18952,7 @@ html.v-overlay-scroll-blocked {
 }
 
 .v-timeline .v-timeline-divider__dot {
-  background: rgb(var(--v-theme-on-surface-variant));
+  background: rgba(var(--v-theme-on-background), var(--v-border-opacity));
 }
 .v-timeline .v-timeline-divider__inner-dot {
   background: rgb(var(--v-theme-on-surface));
