@@ -8943,7 +8943,7 @@ const VBtn = defineComponent({
     return {};
   }
 });
-const _sfc_main$i = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
   __name: "ResponsiveBtn",
   props: {
     label: {
@@ -11912,7 +11912,6 @@ var mdiEmailOutline = "M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 
 var mdiGithub = "M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z";
 var mdiInformationOutline = "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z";
 var mdiLinkedin = "M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z";
-var mdiOpenInNew = "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z";
 var mdiPalette = "M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z";
 var mdiPhoneOutline = "M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.5 8,3 7.5,3H4C3.5,3 3,3.5 3,4C3,13.4 10.6,21 20,21C20.5,21 21,20.5 21,20V16.5C21,16 20.5,15.5 20,15.5M5,5H6.5C6.6,5.9 6.8,6.8 7,7.6L5.8,8.8C5.4,7.6 5.1,6.3 5,5M19,19C17.7,18.9 16.4,18.6 15.2,18.2L16.4,17C17.2,17.2 18.1,17.4 19,17.4V19Z";
 var mdiPrinterOutline = "M19 8C20.66 8 22 9.34 22 11V17H18V21H6V17H2V11C2 9.34 3.34 8 5 8H6V3H18V8H19M8 5V8H16V5H8M16 19V15H8V19H16M18 15H20V11C20 10.45 19.55 10 19 10H5C4.45 10 4 10.45 4 11V15H6V13H18V15M19 11.5C19 12.05 18.55 12.5 18 12.5C17.45 12.5 17 12.05 17 11.5C17 10.95 17.45 10.5 18 10.5C18.55 10.5 19 10.95 19 11.5Z";
@@ -14982,7 +14981,7 @@ const VMenu = genericComponent()({
     }, overlay);
   }
 });
-const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
   __name: "LocaleMenu",
   setup(__props) {
     useI18n();
@@ -15001,7 +15000,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
           attach: container.value
         }, {
           activator: withCtx(({ props }) => [
-            createVNode(_sfc_main$i, mergeProps({
+            createVNode(_sfc_main$h, mergeProps({
               icon: unref(mdiEarth),
               label: unref(menuLabel),
               variant: "tonal",
@@ -15067,11 +15066,11 @@ function block0$b(Component) {
   });
 }
 if (typeof block0$b === "function")
-  block0$b(_sfc_main$h);
+  block0$b(_sfc_main$g);
 const store = reactive({
   printing: false
 });
-const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
   __name: "PrintBtn",
   setup(__props) {
     const { t } = useI18n();
@@ -15086,7 +15085,7 @@ const _sfc_main$g = /* @__PURE__ */ defineComponent$1({
       }, 250);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$i, {
+      return openBlock(), createBlock(_sfc_main$h, {
         icon: unref(mdiPrinterOutline),
         label: unref(t)("print"),
         loading: unref(store).printing,
@@ -15118,7 +15117,7 @@ function block0$a(Component) {
   });
 }
 if (typeof block0$a === "function")
-  block0$a(_sfc_main$g);
+  block0$a(_sfc_main$f);
 const VCardActions = defineComponent({
   name: "VCardActions",
   setup(_, _ref) {
@@ -15565,7 +15564,7 @@ const VTimelineItem = defineComponent({
   }
 });
 const _hoisted_1$a = { class: "text-h5" };
-const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
   __name: "TimelineSection",
   props: {
     title: {
@@ -15631,10 +15630,10 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-a58714f1"]]);
+const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["__scopeId", "data-v-a58714f1"]]);
 const _hoisted_1$9 = { class: "text-h6" };
 const _hoisted_2$5 = { class: "font-weight-bold" };
-const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
   __name: "EducationSection",
   setup(__props) {
     const { t } = useI18n();
@@ -15782,12 +15781,12 @@ function block0$9(Component) {
   });
 }
 if (typeof block0$9 === "function")
-  block0$9(_sfc_main$e);
+  block0$9(_sfc_main$d);
 const _hoisted_1$8 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
 const _hoisted_2$4 = { class: "text-h6" };
 const _hoisted_3$2 = { class: "text-body-1" };
 const _hoisted_4$1 = { class: "font-weight-bold" };
-const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
   __name: "ExperienceSection",
   setup(__props) {
     const { t } = useI18n();
@@ -16046,10 +16045,10 @@ function block0$8(Component) {
   });
 }
 if (typeof block0$8 === "function")
-  block0$8(_sfc_main$d);
+  block0$8(_sfc_main$c);
 const _hoisted_1$7 = { class: "text-h5" };
 const _hoisted_2$3 = { class: "my-1" };
-const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
   __name: "CardSection",
   props: {
     title: {
@@ -16358,7 +16357,7 @@ const VChip = defineComponent({
     };
   }
 });
-const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChip",
   props: {
     name: {
@@ -16400,7 +16399,7 @@ const _hoisted_1$6 = {
   role: "list",
   class: "d-flex align-center flex-wrap"
 };
-const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChipsList",
   props: {
     items: {
@@ -16412,7 +16411,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$6, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item, index) => {
-          return openBlock(), createBlock(_sfc_main$b, {
+          return openBlock(), createBlock(_sfc_main$a, {
             key: `items.${index}`,
             name: item.name,
             color: item.color,
@@ -16424,7 +16423,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
   __name: "HobbiesSection",
   setup(__props) {
     const { t } = useI18n();
@@ -16436,11 +16435,11 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
       { name: t("hobbies.videoGames"), color: "primary" }
     ]);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$c, {
+      return openBlock(), createBlock(_sfc_main$b, {
         title: unref(t)("title")
       }, {
         default: withCtx(() => [
-          createVNode(_sfc_main$a, { items: unref(hobbies) }, null, 8, ["items"])
+          createVNode(_sfc_main$9, { items: unref(hobbies) }, null, 8, ["items"])
         ]),
         _: 1
       }, 8, ["title"]);
@@ -16512,11 +16511,11 @@ function block0$7(Component) {
   });
 }
 if (typeof block0$7 === "function")
-  block0$7(_sfc_main$9);
+  block0$7(_sfc_main$8);
 const profileJPG = "/me/assets/profile.50421d57.jpg";
 const profileWebP = "/me/assets/profile.186b84ea.webp";
 const _hoisted_1$5 = { class: "d-sr-only" };
-const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
   __name: "OpenInNewText",
   setup(__props) {
     const { t } = useI18n();
@@ -16546,7 +16545,7 @@ function block0$6(Component) {
   });
 }
 if (typeof block0$6 === "function")
-  block0$6(_sfc_main$8);
+  block0$6(_sfc_main$7);
 const VContainer = defineComponent({
   name: "VContainer",
   props: {
@@ -16791,7 +16790,7 @@ const _hoisted_5 = { class: "text-body-1 mb-2" };
 const _hoisted_6 = /* @__PURE__ */ createTextVNode(" paul.thebaud29@gmail.com ");
 const _hoisted_7 = /* @__PURE__ */ createTextVNode(" GitHub ");
 const _hoisted_8 = /* @__PURE__ */ createTextVNode(" LinkedIn ");
-const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
+const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
   __name: "IntroductionSection",
   setup(__props) {
     const { t } = useI18n();
@@ -16892,7 +16891,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                           }, {
                             default: withCtx(() => [
                               _hoisted_7,
-                              createVNode(_sfc_main$8)
+                              createVNode(_sfc_main$7)
                             ]),
                             _: 1
                           }, 8, ["prepend-icon"]),
@@ -16907,7 +16906,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                           }, {
                             default: withCtx(() => [
                               _hoisted_8,
-                              createVNode(_sfc_main$8)
+                              createVNode(_sfc_main$7)
                             ]),
                             _: 1
                           }, 8, ["prepend-icon"])
@@ -16957,21 +16956,7 @@ function block0$5(Component) {
   });
 }
 if (typeof block0$5 === "function")
-  block0$5(_sfc_main$7);
-const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
-  __name: "OpenInNewIcon",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock(Fragment, null, [
-        createVNode(_sfc_main$8),
-        createVNode(VIcon, mergeProps({
-          icon: unref(mdiOpenInNew),
-          class: "mb-2"
-        }, _ctx.$attrs), null, 16, ["icon"])
-      ], 64);
-    };
-  }
-});
+  block0$5(_sfc_main$6);
 const tools = {
   LINUX: {
     name: "Linux (Ubuntu)",
@@ -17128,7 +17113,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
       }
     ]);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$c, {
+      return openBlock(), createBlock(_sfc_main$b, {
         title: unref(t)("title"),
         items: unref(projects)
       }, {
@@ -17140,15 +17125,15 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
               rel: "noreferrer nofollow"
             }, [
               createTextVNode(toDisplayString$1(item.title) + " ", 1),
-              createVNode(_sfc_main$6, { size: "1rem" })
+              createVNode(_sfc_main$7)
             ], 8, _hoisted_2$1),
-            createVNode(_sfc_main$b, {
+            createVNode(_sfc_main$a, {
               name: item.category,
-              color: "secondary"
+              color: "primary"
             }, null, 8, ["name"])
           ]),
           createBaseVNode("p", _hoisted_3, toDisplayString$1(item.description), 1),
-          createVNode(_sfc_main$a, {
+          createVNode(_sfc_main$9, {
             items: item.tools
           }, null, 8, ["items"])
         ]),
@@ -17302,13 +17287,13 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
       }
     ]);
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(_sfc_main$c, {
+      return openBlock(), createBlock(_sfc_main$b, {
         title: unref(t)("title"),
         items: unref(skills)
       }, {
         item: withCtx(({ item }) => [
           createBaseVNode("h3", _hoisted_1$2, toDisplayString$1(item.title), 1),
-          createVNode(_sfc_main$a, {
+          createVNode(_sfc_main$9, {
             items: item.tools
           }, null, 8, ["items"])
         ]),
@@ -17467,13 +17452,12 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
         }, null, 8, ["icon"]),
         createVNode(_component_i18n_t, {
           keypath: "seeWebVersion",
-          tag: "label",
-          for: "tos"
+          tag: "div"
         }, {
           default: withCtx(() => [
             createBaseVNode("a", _hoisted_2, [
               createTextVNode(toDisplayString$1(unref(t)("webVersion")) + " ", 1),
-              createVNode(_sfc_main$6, { size: "0.75rem" })
+              createVNode(_sfc_main$7)
             ])
           ]),
           _: 1
@@ -17528,9 +17512,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
               md: "7"
             }, {
               default: withCtx(() => [
-                createVNode(_sfc_main$7, { class: "page-break--avoid" }),
-                createVNode(_sfc_main$d, { class: "page-break--avoid mt-2" }),
-                createVNode(_sfc_main$e, { class: "page-break--avoid mt-2" })
+                createVNode(_sfc_main$6, { class: "page-break--avoid" }),
+                createVNode(_sfc_main$c, { class: "page-break--avoid mt-2" }),
+                createVNode(_sfc_main$d, { class: "page-break--avoid mt-2" })
               ]),
               _: 1
             }, 8, ["cols"]),
@@ -17541,7 +17525,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent$1({
               default: withCtx(() => [
                 createVNode(_sfc_main$5, { class: "page-break--avoid" }),
                 createVNode(_sfc_main$4, { class: "page-break--avoid mt-2" }),
-                createVNode(_sfc_main$9, { class: "page-break--avoid mt-2" })
+                createVNode(_sfc_main$8, { class: "page-break--avoid mt-2" })
               ]),
               _: 1
             }, 8, ["cols"])
@@ -17572,7 +17556,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
           attach: container.value
         }, {
           activator: withCtx(({ props }) => [
-            createVNode(_sfc_main$i, mergeProps({
+            createVNode(_sfc_main$h, mergeProps({
               icon: unref(mdiPalette),
               label: unref(t)(`themes.${unref(theme).global.name.value}`),
               variant: "tonal",
@@ -17732,7 +17716,7 @@ const VMain = defineComponent({
     return {};
   }
 });
-const _hoisted_1 = { class: "d-print-none d-flex align-center" };
+const _hoisted_1 = { class: "d-print-none d-flex align-center pb-6 pb-md-12" };
 const _sfc_main = /* @__PURE__ */ defineComponent$1({
   __name: "App",
   setup(__props) {
@@ -17744,12 +17728,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
               createVNode(VContainer, null, {
                 default: withCtx(() => [
                   createBaseVNode("header", _hoisted_1, [
-                    createVNode(_sfc_main$g),
+                    createVNode(_sfc_main$f),
                     createVNode(VSpacer),
-                    createVNode(_sfc_main$h),
+                    createVNode(_sfc_main$g),
                     createVNode(_sfc_main$1, { class: "ml-2" })
                   ]),
-                  createVNode(_sfc_main$2, { class: "mt-md-12" })
+                  createVNode(_sfc_main$2)
                 ]),
                 _: 1
               })
@@ -17762,7 +17746,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_e15e8a2b_lang = "";
+const App_vue_vue_type_style_index_0_scoped_d77d6c67_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -17805,7 +17789,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-e15e8a2b"]]);
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d77d6c67"]]);
 function defaultLocale() {
   let defaultLocale2 = locales.fr.id;
   (window.navigator.languages || []).some((language) => {
@@ -17821,14 +17805,12 @@ function defaultLocale() {
 const dark = {
   dark: true,
   colors: {
-    background: "#0B0419",
-    "on-background": "#e3e1ec",
-    surface: "#12072A",
-    "on-surface": "#fffbff",
-    primary: "#bcc2ff",
-    "on-primary": "#170362",
-    secondary: "#d6baff",
-    "on-secondary": "#430089",
+    background: "#001120",
+    "on-background": "#d1e4ff",
+    surface: "#001d36",
+    "on-surface": "#d1e4ff",
+    primary: "#b7c4ff",
+    "on-primary": "#002584",
     error: "#b00020",
     info: "#2196f3",
     success: "#4caf50",
@@ -17842,7 +17824,7 @@ const highContrast = {
     "on-background": "#170362",
     surface: "#fffbff",
     "on-surface": "#000000",
-    primary: "#170362",
+    primary: "#1d3072",
     "on-primary": "#ffffff",
     secondary: "#753cc8",
     "on-secondary": "#ffffff",
@@ -17855,14 +17837,12 @@ const highContrast = {
 const light = {
   dark: false,
   colors: {
-    background: "#e3e1ec",
-    "on-background": "#170362",
+    background: "#e2e1ec",
+    "on-background": "#001d36",
     surface: "#fffbff",
-    "on-surface": "#170362",
-    primary: "#4855b4",
+    "on-surface": "#001d36",
+    primary: "#3354c8",
     "on-primary": "#ffffff",
-    secondary: "#753cc8",
-    "on-secondary": "#ffffff",
     error: "#b00020",
     info: "#2196f3",
     success: "#4caf50",

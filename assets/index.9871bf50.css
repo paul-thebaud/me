@@ -6,14 +6,18 @@
 }.v-card > .v-card__loader {
   display: none !important;
 }
-.v-container[data-v-e15e8a2b] {
+.v-container[data-v-d77d6c67] {
   max-width: 1100px !important;
 }
 @media print {
-.v-main[data-v-e15e8a2b] {
+@page {
+    size: 210mm 297mm;
+    margin: 0;
+}
+.v-main[data-v-d77d6c67] {
     padding: 0 !important;
 }
-.v-container[data-v-e15e8a2b] {
+.v-container[data-v-d77d6c67] {
     padding: 10mm !important;
 }
 }
@@ -19380,6 +19384,10 @@ html.v-overlay-scroll-blocked {
 }
 .v-ripple__animation--out {
   transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+a {
+  color: rgb(var(--v-theme-primary));
 }
 
 .text--monospace {
