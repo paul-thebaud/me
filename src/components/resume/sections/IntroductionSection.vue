@@ -7,11 +7,28 @@ import profileWebP from '@/assets/profile.webp';
 import OpenInNewText from '@/components/OpenInNewText.vue';
 import store from '@/store';
 import { mdiEmailOutline, mdiGithub, mdiLinkedin, mdiPhoneOutline } from '@mdi/js';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useDisplay } from 'vuetify';
 
 const { t } = useI18n();
 const { mobile, width } = useDisplay();
+
+const img = ref(null);
+
+// TODO Remove this temporary fix for vuetify alt on picture.
+const fixImgAlt = () => {
+  const imgEl = (img.value as any).$el?.getElementsByTagName('img')[0] || undefined;
+  if (imgEl) {
+    imgEl.alt = '';
+  } else {
+    setTimeout(() => fixImgAlt(), 100);
+  }
+};
+
+onMounted(() => {
+  fixImgAlt();
+});
 </script>
 
 <template>
@@ -21,15 +38,22 @@ const { mobile, width } = useDisplay();
       class="d-flex"
     >
       <v-img
+        ref="img"
         :src="profileJPG"
         class="align-self-stretch"
         max-height="50vh"
         width="148"
-        alt=""
         cover
       >
         <template #sources>
-          <source :srcset="profileWebP" />
+          <source
+            :srcset="profileWebP"
+            type="image/webp"
+          />
+          <source
+            :srcset="profileJPG"
+            type="image/jpeg"
+          />
         </template>
       </v-img>
       <div class="w-100">
