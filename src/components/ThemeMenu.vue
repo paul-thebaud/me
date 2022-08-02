@@ -4,7 +4,6 @@
 >
 import ResponsiveBtn from '@/components/ResponsiveBtn.vue';
 import themes from '@/plugins/vuetify/themes';
-import { mdiPalette } from '@mdi/js';
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useTheme } from 'vuetify';
@@ -29,8 +28,9 @@ const onThemeChange = (newTheme: string) => {
   >
     <template #activator="{ props }">
       <responsive-btn
-        :icon="mdiPalette"
+        :icon="themes[theme.global.name.value].icon"
         :label="t(`themes.${theme.global.name.value}`)"
+        class="mr-2"
         variant="tonal"
         color="primary"
         v-bind="{ ...$attrs, ...props }"
