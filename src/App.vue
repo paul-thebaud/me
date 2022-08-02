@@ -9,18 +9,14 @@ import ThemeMenu from '@/components/ThemeMenu.vue';</script>
 
 <template>
   <v-app>
-    <v-app-bar
-      class="d-print-none"
-      floating
-      app
-    >
-      <print-btn />
-      <v-spacer />
-      <locale-menu />
-      <theme-menu class="ml-2" />
-    </v-app-bar>
     <v-main>
       <v-container>
+        <header class="d-print-none d-flex align-center">
+          <print-btn />
+          <v-spacer />
+          <locale-menu />
+          <theme-menu class="ml-2" />
+        </header>
         <resume-content class="mt-md-12" />
       </v-container>
     </v-main>
