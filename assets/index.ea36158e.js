@@ -5386,6 +5386,26 @@ function hasCSSTransform(el, root, moveClass) {
   container.removeChild(clone);
   return hasTransform;
 }
+const keyNames = {
+  esc: "escape",
+  space: " ",
+  up: "arrow-up",
+  left: "arrow-left",
+  right: "arrow-right",
+  down: "arrow-down",
+  delete: "backspace"
+};
+const withKeys = (fn, modifiers) => {
+  return (event) => {
+    if (!("key" in event)) {
+      return;
+    }
+    const eventKey = hyphenate(event.key);
+    if (modifiers.some((k) => k === eventKey || keyNames[k] === eventKey)) {
+      return fn(event);
+    }
+  };
+};
 const vShow = {
   beforeMount(el, { value }, { transition }) {
     el._vod = el.style.display === "none" ? "" : el.style.display;
@@ -7061,49 +7081,11 @@ const makeLayoutProps = propsFactory({
   },
   fullHeight: Boolean
 }, "layout");
-const makeLayoutItemProps = propsFactory({
-  name: {
-    type: String
-  },
-  order: {
-    type: [Number, String],
-    default: 0
-  },
-  absolute: Boolean
-}, "layout-item");
 function useLayout() {
   const layout = inject(VuetifyLayoutKey);
   if (!layout)
     throw new Error("Could not find injected Vuetify layout");
   return layout;
-}
-function useLayoutItem(options) {
-  var _options$id;
-  const layout = inject(VuetifyLayoutKey);
-  if (!layout)
-    throw new Error("Could not find injected Vuetify layout");
-  const id = (_options$id = options.id) != null ? _options$id : `layout-item-${getUid()}`;
-  const vm = getCurrentInstance("useLayoutItem");
-  provide(VuetifyLayoutItemKey, {
-    id
-  });
-  const isKeptAlive = ref(false);
-  onDeactivated(() => isKeptAlive.value = true);
-  onActivated(() => isKeptAlive.value = false);
-  const {
-    layoutItemStyles,
-    layoutItemScrimStyles
-  } = layout.register(vm, {
-    ...options,
-    active: computed(() => isKeptAlive.value ? false : options.active.value),
-    id
-  });
-  onBeforeUnmount(() => layout.unregister(id));
-  return {
-    layoutItemStyles,
-    layoutRect: layout.layoutRect,
-    layoutItemScrimStyles
-  };
 }
 const generateLayers = (layout, positions, layoutSizes, activeItems) => {
   let previousLayer = {
@@ -7415,12 +7397,12 @@ function useBorder(props) {
     borderClasses
   };
 }
-const allowedDensities$1 = [null, "default", "comfortable", "compact"];
+const allowedDensities = [null, "default", "comfortable", "compact"];
 const makeDensityProps = propsFactory({
   density: {
     type: String,
     default: "default",
-    validator: (v) => allowedDensities$1.includes(v)
+    validator: (v) => allowedDensities.includes(v)
   }
 }, "density");
 function useDensity(props) {
@@ -15004,35 +14986,51 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
   __name: "LocaleMenu",
   setup(__props) {
     useI18n();
+    const menu = ref(false);
+    const container = ref(void 0);
     const menuLabel = computed(() => locales[i18n.global.locale.value].name);
     const onLocaleChange = (locale) => {
       changeLocale(locale);
+      menu.value = false;
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(VMenu, null, {
-        activator: withCtx(({ props }) => [
-          createVNode(_sfc_main$i, mergeProps({
-            icon: unref(mdiEarth),
-            label: unref(menuLabel)
-          }, props), null, 16, ["icon", "label"])
-        ]),
-        default: withCtx(() => [
-          createVNode(VList, null, {
-            default: withCtx(() => [
-              (openBlock(true), createElementBlock(Fragment, null, renderList(unref(locales), (locale) => {
-                return openBlock(), createBlock(VListItem, {
-                  key: `locales.${locale.id}`,
-                  title: locale.name,
-                  active: locale.id === unref(i18n).global.locale.value,
-                  onClick: ($event) => onLocaleChange(locale.id)
-                }, null, 8, ["title", "active", "onClick"]);
-              }), 128))
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      });
+      return openBlock(), createElementBlock(Fragment, null, [
+        createVNode(VMenu, {
+          modelValue: menu.value,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => menu.value = $event),
+          attach: container.value
+        }, {
+          activator: withCtx(({ props }) => [
+            createVNode(_sfc_main$i, mergeProps({
+              icon: unref(mdiEarth),
+              label: unref(menuLabel),
+              variant: "tonal",
+              color: "primary"
+            }, props), null, 16, ["icon", "label"])
+          ]),
+          default: withCtx(() => [
+            createVNode(VList, null, {
+              default: withCtx(() => [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(unref(locales), (locale) => {
+                  return openBlock(), createBlock(VListItem, {
+                    key: `locales.${locale.id}`,
+                    title: locale.name,
+                    active: locale.id === unref(i18n).global.locale.value,
+                    onClick: ($event) => onLocaleChange(locale.id),
+                    onKeyup: withKeys(($event) => onLocaleChange(locale.id), ["enter"])
+                  }, null, 8, ["title", "active", "onClick", "onKeyup"]);
+                }), 128))
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["modelValue", "attach"]),
+        createBaseVNode("div", {
+          ref_key: "container",
+          ref: container
+        }, null, 512)
+      ], 64);
     };
   }
 });
@@ -15566,7 +15564,7 @@ const VTimelineItem = defineComponent({
     return {};
   }
 });
-const _hoisted_1$9 = { class: "text-h5" };
+const _hoisted_1$a = { class: "text-h5" };
 const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
   __name: "TimelineSection",
   props: {
@@ -15586,7 +15584,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
         default: withCtx(() => [
           createVNode(VCardTitle, null, {
             default: withCtx(() => [
-              createBaseVNode("h2", _hoisted_1$9, toDisplayString$1(__props.title), 1)
+              createBaseVNode("h2", _hoisted_1$a, toDisplayString$1(__props.title), 1)
             ]),
             _: 1
           }),
@@ -15601,6 +15599,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
                   (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item, index) => {
                     return openBlock(), createBlock(VTimelineItem, {
                       key: `items.${index}`,
+                      "dot-color": "primary",
                       size: "x-small"
                     }, {
                       opposite: withCtx(() => [
@@ -15624,7 +15623,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const TimelineSection_vue_vue_type_style_index_0_scoped_e2511ef4_lang = "";
+const TimelineSection_vue_vue_type_style_index_0_scoped_a58714f1_lang = "";
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -15632,8 +15631,8 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-e2511ef4"]]);
-const _hoisted_1$8 = { class: "text-h6" };
+const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-a58714f1"]]);
+const _hoisted_1$9 = { class: "text-h6" };
 const _hoisted_2$5 = { class: "font-weight-bold" };
 const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
   __name: "EducationSection",
@@ -15670,7 +15669,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
           createTextVNode(toDisplayString$1(item.date), 1)
         ]),
         item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$8, toDisplayString$1(item.title), 1),
+          createBaseVNode("h3", _hoisted_1$9, toDisplayString$1(item.title), 1),
           createBaseVNode("span", _hoisted_2$5, toDisplayString$1(item.location), 1)
         ]),
         _: 1
@@ -15784,7 +15783,7 @@ function block0$9(Component) {
 }
 if (typeof block0$9 === "function")
   block0$9(_sfc_main$e);
-const _hoisted_1$7 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
+const _hoisted_1$8 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
 const _hoisted_2$4 = { class: "text-h6" };
 const _hoisted_3$2 = { class: "text-body-1" };
 const _hoisted_4$1 = { class: "font-weight-bold" };
@@ -15836,7 +15835,7 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
         date: withCtx(({ item }) => [
           createTextVNode(toDisplayString$1(item.date) + " ", 1),
           item.duration ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-            _hoisted_1$7,
+            _hoisted_1$8,
             createTextVNode(" " + toDisplayString$1(item.duration), 1)
           ], 64)) : createCommentVNode("", true)
         ]),
@@ -16048,7 +16047,7 @@ function block0$8(Component) {
 }
 if (typeof block0$8 === "function")
   block0$8(_sfc_main$d);
-const _hoisted_1$6 = { class: "text-h5" };
+const _hoisted_1$7 = { class: "text-h5" };
 const _hoisted_2$3 = { class: "my-1" };
 const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
   __name: "CardSection",
@@ -16069,7 +16068,7 @@ const _sfc_main$c = /* @__PURE__ */ defineComponent$1({
         default: withCtx(() => [
           createVNode(VCardTitle, null, {
             default: withCtx(() => [
-              createBaseVNode("h2", _hoisted_1$6, toDisplayString$1(__props.title), 1)
+              createBaseVNode("h2", _hoisted_1$7, toDisplayString$1(__props.title), 1)
             ]),
             _: 1
           }),
@@ -16397,7 +16396,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const _hoisted_1$5 = { class: "d-flex align-center flex-wrap" };
+const _hoisted_1$6 = { class: "d-flex align-center flex-wrap" };
 const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChipsList",
   props: {
@@ -16408,7 +16407,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$5, [
+      return openBlock(), createElementBlock("div", _hoisted_1$6, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(__props.items, (item, index) => {
           return openBlock(), createBlock(_sfc_main$b, {
             key: `items.${index}`,
@@ -16512,13 +16511,13 @@ if (typeof block0$7 === "function")
   block0$7(_sfc_main$9);
 const profileJPG = "/me/assets/profile.50421d57.jpg";
 const profileWebP = "/me/assets/profile.186b84ea.webp";
-const _hoisted_1$4 = { class: "d-sr-only" };
+const _hoisted_1$5 = { class: "d-sr-only" };
 const _sfc_main$8 = /* @__PURE__ */ defineComponent$1({
   __name: "OpenInNewText",
   setup(__props) {
     const { t } = useI18n();
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("span", _hoisted_1$4, toDisplayString$1(unref(t)("openInNew")), 1);
+      return openBlock(), createElementBlock("span", _hoisted_1$5, toDisplayString$1(unref(t)("openInNew")), 1);
     };
   }
 });
@@ -16780,7 +16779,7 @@ const VRow = defineComponent({
   }
 });
 const VSpacer = createSimpleFunctional("flex-grow-1", "div", "VSpacer");
-const _hoisted_1$3 = ["srcset"];
+const _hoisted_1$4 = ["srcset"];
 const _hoisted_2$2 = ["srcset"];
 const _hoisted_3$1 = { class: "w-100" };
 const _hoisted_4 = /* @__PURE__ */ createBaseVNode("h1", { class: "text-h4" }, " Paul Th\xE9baud ", -1);
@@ -16825,7 +16824,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                 createBaseVNode("source", {
                   srcset: unref(profileWebP),
                   type: "image/webp"
-                }, null, 8, _hoisted_1$3),
+                }, null, 8, _hoisted_1$4),
                 createBaseVNode("source", {
                   srcset: unref(profileJPG),
                   type: "image/jpeg"
@@ -17075,7 +17074,7 @@ const tools = {
     color: "purple-accent-3"
   }
 };
-const _hoisted_1$2 = { class: "d-flex align-center justify-space-between text-h6" };
+const _hoisted_1$3 = { class: "d-flex align-center justify-space-between text-h6" };
 const _hoisted_2$1 = ["href"];
 const _hoisted_3 = { class: "text-body-2 mb-2" };
 const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
@@ -17130,7 +17129,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
         items: unref(projects)
       }, {
         item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$2, [
+          createBaseVNode("h3", _hoisted_1$3, [
             createBaseVNode("a", {
               href: item.website.url,
               target: "_blank",
@@ -17248,7 +17247,7 @@ function block0$4(Component) {
 }
 if (typeof block0$4 === "function")
   block0$4(_sfc_main$5);
-const _hoisted_1$1 = { class: "text-h6" };
+const _hoisted_1$2 = { class: "text-h6" };
 const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
   __name: "SkillsSection",
   setup(__props) {
@@ -17304,7 +17303,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
         items: unref(skills)
       }, {
         item: withCtx(({ item }) => [
-          createBaseVNode("h3", _hoisted_1$1, toDisplayString$1(item.title), 1),
+          createBaseVNode("h3", _hoisted_1$2, toDisplayString$1(item.title), 1),
           createVNode(_sfc_main$a, {
             items: item.tools
           }, null, 8, ["items"])
@@ -17440,7 +17439,7 @@ function block0$3(Component) {
 }
 if (typeof block0$3 === "function")
   block0$3(_sfc_main$4);
-const _hoisted_1 = {
+const _hoisted_1$1 = {
   key: 0,
   class: "d-flex align-center justify-center text-center"
 };
@@ -17456,7 +17455,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
     const { t } = useI18n();
     return (_ctx, _cache) => {
       const _component_i18n_t = resolveComponent("i18n-t");
-      return unref(store).printing ? (openBlock(), createElementBlock("div", _hoisted_1, [
+      return unref(store).printing ? (openBlock(), createElementBlock("div", _hoisted_1$1, [
         createVNode(VIcon, {
           icon: unref(mdiInformationOutline),
           size: "1rem",
@@ -17554,37 +17553,52 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
   setup(__props) {
     const { t } = useI18n();
     const theme = useTheme();
+    const menu = ref(false);
+    const container = ref(void 0);
     const currentThemeId = computed(() => theme.global.name.value);
     const onThemeChange = (newTheme) => {
       theme.global.name.value = newTheme;
+      menu.value = false;
     };
     return (_ctx, _cache) => {
-      return openBlock(), createBlock(VMenu, null, {
-        activator: withCtx(({ props }) => [
-          createVNode(_sfc_main$i, mergeProps({
-            icon: unref(mdiPalette),
-            label: unref(t)(`themes.${unref(theme).global.name.value}`),
-            variant: "tonal"
-          }, { ..._ctx.$attrs, ...props }), null, 16, ["icon", "label"])
-        ]),
-        default: withCtx(() => [
-          createVNode(VList, null, {
-            default: withCtx(() => [
-              (openBlock(true), createElementBlock(Fragment, null, renderList(unref(themes), (theme2) => {
-                return openBlock(), createBlock(VListItem, {
-                  key: `themes.${theme2.id}`,
-                  title: unref(t)(`themes.${theme2.id}`),
-                  "prepend-icon": theme2.icon,
-                  active: theme2.id === unref(currentThemeId),
-                  onClick: ($event) => onThemeChange(theme2.id)
-                }, null, 8, ["title", "prepend-icon", "active", "onClick"]);
-              }), 128))
-            ]),
-            _: 1
-          })
-        ]),
-        _: 1
-      });
+      return openBlock(), createElementBlock(Fragment, null, [
+        createVNode(VMenu, {
+          modelValue: menu.value,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => menu.value = $event),
+          attach: container.value
+        }, {
+          activator: withCtx(({ props }) => [
+            createVNode(_sfc_main$i, mergeProps({
+              icon: unref(mdiPalette),
+              label: unref(t)(`themes.${unref(theme).global.name.value}`),
+              variant: "tonal",
+              color: "primary"
+            }, { ..._ctx.$attrs, ...props }), null, 16, ["icon", "label"])
+          ]),
+          default: withCtx(() => [
+            createVNode(VList, null, {
+              default: withCtx(() => [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(unref(themes), (theme2) => {
+                  return openBlock(), createBlock(VListItem, {
+                    key: `themes.${theme2.id}`,
+                    title: unref(t)(`themes.${theme2.id}`),
+                    "prepend-icon": theme2.icon,
+                    active: theme2.id === unref(currentThemeId),
+                    onClick: ($event) => onThemeChange(theme2.id),
+                    onKeyup: withKeys(($event) => onThemeChange(theme2.id), ["enter"])
+                  }, null, 8, ["title", "prepend-icon", "active", "onClick", "onKeyup"]);
+                }), 128))
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 8, ["modelValue", "attach"]),
+        createBaseVNode("div", {
+          ref_key: "container",
+          ref: container
+        }, null, 512)
+      ], 64);
     };
   }
 });
@@ -17670,216 +17684,6 @@ const VApp = defineComponent({
     };
   }
 });
-const VToolbarTitle = genericComponent()({
-  name: "VToolbarTitle",
-  props: {
-    text: String,
-    ...makeTagProps()
-  },
-  setup(props, _ref) {
-    let {
-      slots
-    } = _ref;
-    useRender(() => {
-      var _slots$default;
-      const hasText = !!(slots.default || slots.text || props.text);
-      return createVNode(props.tag, {
-        "class": "v-toolbar-title"
-      }, {
-        default: () => [hasText && createVNode("div", {
-          "class": "v-toolbar-title__placeholder"
-        }, [slots.text ? slots.text() : props.text, (_slots$default = slots.default) == null ? void 0 : _slots$default.call(slots)])]
-      });
-    });
-    return {};
-  }
-});
-const allowedDensities = [null, "prominent", "default", "comfortable", "compact"];
-const makeVToolbarProps = propsFactory({
-  absolute: Boolean,
-  collapse: Boolean,
-  color: String,
-  density: {
-    type: String,
-    default: "default",
-    validator: (v) => allowedDensities.includes(v)
-  },
-  extended: Boolean,
-  extensionHeight: {
-    type: [Number, String],
-    default: 48
-  },
-  flat: Boolean,
-  floating: Boolean,
-  height: {
-    type: [Number, String],
-    default: 64
-  },
-  image: String,
-  title: String,
-  ...makeBorderProps(),
-  ...makeElevationProps(),
-  ...makeRoundedProps(),
-  ...makeTagProps({
-    tag: "header"
-  }),
-  ...makeThemeProps()
-}, "v-toolbar");
-const VToolbar = genericComponent()({
-  name: "VToolbar",
-  props: makeVToolbarProps(),
-  setup(props, _ref) {
-    var _slots$extension;
-    let {
-      slots
-    } = _ref;
-    const {
-      backgroundColorClasses,
-      backgroundColorStyles
-    } = useBackgroundColor(toRef(props, "color"));
-    const {
-      borderClasses
-    } = useBorder(props);
-    const {
-      elevationClasses
-    } = useElevation(props);
-    const {
-      roundedClasses
-    } = useRounded(props);
-    const {
-      themeClasses
-    } = provideTheme(props);
-    const isExtended = ref(!!(props.extended || (_slots$extension = slots.extension) != null && _slots$extension.call(slots)));
-    const contentHeight = computed(() => parseInt(Number(props.height) + (props.density === "prominent" ? Number(props.height) : 0) - (props.density === "comfortable" ? 8 : 0) - (props.density === "compact" ? 16 : 0), 10));
-    const extensionHeight = computed(() => isExtended.value ? parseInt(Number(props.extensionHeight) + (props.density === "prominent" ? Number(props.extensionHeight) : 0) - (props.density === "comfortable" ? 4 : 0) - (props.density === "compact" ? 8 : 0), 10) : 0);
-    provideDefaults({
-      VBtn: {
-        variant: "text"
-      }
-    });
-    useRender(() => {
-      var _slots$extension2, _slots$image, _slots$prepend, _slots$default, _slots$append;
-      const hasTitle = !!(props.title || slots.title);
-      const hasImage = !!(slots.image || props.image);
-      const extension = (_slots$extension2 = slots.extension) == null ? void 0 : _slots$extension2.call(slots);
-      isExtended.value = !!(props.extended || extension);
-      return createVNode(props.tag, {
-        "class": ["v-toolbar", {
-          "v-toolbar--absolute": props.absolute,
-          "v-toolbar--collapse": props.collapse,
-          "v-toolbar--flat": props.flat,
-          "v-toolbar--floating": props.floating,
-          [`v-toolbar--density-${props.density}`]: true
-        }, backgroundColorClasses.value, borderClasses.value, elevationClasses.value, roundedClasses.value, themeClasses.value],
-        "style": [backgroundColorStyles.value]
-      }, {
-        default: () => [hasImage && createVNode("div", {
-          "key": "image",
-          "class": "v-toolbar__image"
-        }, [createVNode(VDefaultsProvider, {
-          "defaults": {
-            VImg: {
-              cover: true,
-              src: props.image
-            }
-          }
-        }, {
-          default: () => [slots.image ? (_slots$image = slots.image) == null ? void 0 : _slots$image.call(slots) : createVNode(VImg, null, null)]
-        })]), createVNode("div", {
-          "class": "v-toolbar__content",
-          "style": {
-            height: convertToUnit(contentHeight.value)
-          }
-        }, [slots.prepend && createVNode("div", {
-          "class": "v-toolbar__prepend"
-        }, [(_slots$prepend = slots.prepend) == null ? void 0 : _slots$prepend.call(slots)]), hasTitle && createVNode(VToolbarTitle, {
-          "key": "title",
-          "text": props.title
-        }, {
-          text: slots.title
-        }), (_slots$default = slots.default) == null ? void 0 : _slots$default.call(slots), slots.append && createVNode("div", {
-          "class": "v-toolbar__append"
-        }, [(_slots$append = slots.append) == null ? void 0 : _slots$append.call(slots)])]), createVNode(VExpandTransition, null, {
-          default: () => [isExtended.value && createVNode("div", {
-            "class": "v-toolbar__extension",
-            "style": {
-              height: convertToUnit(extensionHeight.value)
-            }
-          }, [extension])]
-        })]
-      });
-    });
-    return useForwardRef({
-      contentHeight,
-      extensionHeight
-    });
-  }
-});
-function filterToolbarProps(props) {
-  var _VToolbar$props;
-  return pick(props, Object.keys((_VToolbar$props = VToolbar == null ? void 0 : VToolbar.props) != null ? _VToolbar$props : {}));
-}
-const VAppBar = defineComponent({
-  name: "VAppBar",
-  props: {
-    modelValue: {
-      type: Boolean,
-      default: true
-    },
-    location: {
-      type: String,
-      default: "top",
-      validator: (value) => ["top", "bottom"].includes(value)
-    },
-    ...makeVToolbarProps(),
-    ...makeLayoutItemProps(),
-    height: {
-      type: [Number, String],
-      default: 64
-    }
-  },
-  emits: {
-    "update:modelValue": (value) => true
-  },
-  setup(props, _ref) {
-    let {
-      slots
-    } = _ref;
-    const vToolbarRef = ref();
-    const isActive = useProxiedModel(props, "modelValue");
-    const height = computed(() => {
-      var _vToolbarRef$value$co, _vToolbarRef$value, _vToolbarRef$value$ex, _vToolbarRef$value2;
-      const height2 = (_vToolbarRef$value$co = (_vToolbarRef$value = vToolbarRef.value) == null ? void 0 : _vToolbarRef$value.contentHeight) != null ? _vToolbarRef$value$co : 0;
-      const extensionHeight = (_vToolbarRef$value$ex = (_vToolbarRef$value2 = vToolbarRef.value) == null ? void 0 : _vToolbarRef$value2.extensionHeight) != null ? _vToolbarRef$value$ex : 0;
-      return height2 + extensionHeight;
-    });
-    const {
-      layoutItemStyles
-    } = useLayoutItem({
-      id: props.name,
-      order: computed(() => parseInt(props.order, 10)),
-      position: toRef(props, "location"),
-      layoutSize: height,
-      elementSize: height,
-      active: isActive,
-      absolute: toRef(props, "absolute")
-    });
-    useRender(() => {
-      const [toolbarProps] = filterToolbarProps(props);
-      return createVNode(VToolbar, mergeProps({
-        "ref": vToolbarRef,
-        "class": ["v-app-bar", {
-          "v-app-bar--bottom": props.location === "bottom"
-        }],
-        "style": {
-          ...layoutItemStyles.value,
-          height: void 0
-        }
-      }, toolbarProps), slots);
-    });
-    return {};
-  }
-});
 function useSsrBoot() {
   const isBooted = ref(false);
   onMounted(() => {
@@ -17924,29 +17728,23 @@ const VMain = defineComponent({
     return {};
   }
 });
+const _hoisted_1 = { class: "d-print-none d-flex align-center" };
 const _sfc_main = /* @__PURE__ */ defineComponent$1({
   __name: "App",
   setup(__props) {
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VApp, null, {
         default: withCtx(() => [
-          createVNode(VAppBar, {
-            class: "d-print-none",
-            floating: "",
-            app: ""
-          }, {
-            default: withCtx(() => [
-              createVNode(_sfc_main$g),
-              createVNode(VSpacer),
-              createVNode(_sfc_main$h),
-              createVNode(_sfc_main$1, { class: "ml-2" })
-            ]),
-            _: 1
-          }),
           createVNode(VMain, null, {
             default: withCtx(() => [
               createVNode(VContainer, null, {
                 default: withCtx(() => [
+                  createBaseVNode("header", _hoisted_1, [
+                    createVNode(_sfc_main$g),
+                    createVNode(VSpacer),
+                    createVNode(_sfc_main$h),
+                    createVNode(_sfc_main$1, { class: "ml-2" })
+                  ]),
                   createVNode(_sfc_main$2, { class: "mt-md-12" })
                 ]),
                 _: 1
@@ -17960,7 +17758,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_6cdf96da_lang = "";
+const App_vue_vue_type_style_index_0_scoped_e15e8a2b_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -18003,7 +17801,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-6cdf96da"]]);
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-e15e8a2b"]]);
 function defaultLocale() {
   let defaultLocale2 = locales.fr.id;
   (window.navigator.languages || []).some((language) => {
