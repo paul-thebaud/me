@@ -100,7 +100,7 @@ const projects = computed(() => [
         "description": "Développement d'une plateforme accessible avec outils de confort et communautaires (forum, commentaires, etc.). Automatisation de processus liés à la communauté."
       },
       "vPhoneInput": {
-        "description": "Librairie de champ de formulaire accessible pour la saisie d'un numéro de téléphone international accessible."
+        "description": "Librairie de champ de formulaire accessible pour la saisie d'un numéro de téléphone au format international pour Vuetify."
       },
       "phpUnitGen": {
         "description": "Générateur de squelettes de tests unitaires avec de nombreuses options de configuration et une génération contextuelle."
@@ -121,7 +121,7 @@ const projects = computed(() => [
         "description": "Accessible platform development with confort and community tools (forum, comments, etc.). Community related process automation."
       },
       "vPhoneInput": {
-        "description": "International and accessible phone input library."
+        "description": "International and accessible phone input library for Vuetify."
       },
       "phpUnitGen": {
         "description": "Unit tests skeleton generator with many configuration options and contextual generation."

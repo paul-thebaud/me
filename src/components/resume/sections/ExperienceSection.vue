@@ -80,13 +80,13 @@ const experience = computed(() => [
       "coworkhit": {
         "date": "Depuis 2022",
         "title": "Référent développement informatique et accessibilité",
-        "description": "Etude des besoins, rédaction de cahier des charges, audit d'accessibilité RGAA 4.1, développement de plateformes Web accessibles, gestions d'un parc d'applicatifs Web avec CI/CD"
+        "description": "Étude des besoins, rédaction de cahier des charges, audit d'accessibilité RGAA 4.1, développement de plateformes Web accessibles, gestions d'un parc d'applicatifs Web avec CI/CD."
       },
       "kerpape": {
         "date": "2020 à 2021",
         "duration": "1 an et 6 mois",
         "title": "Lead développeur PHP, Vue et Vuetify",
-        "description": "Réalisation d'une plateforme communautaire flexible et adaptable à différentes communautés (pages personnalisés et contenus métiers)."
+        "description": "Réalisation d'une plateforme communautaire flexible et adaptable à différentes communautés (pages personnalisables, sondages, gestion d'une base de contacts, etc.)."
       },
       "captainvet": {
         "date": "2019 à 2020",
@@ -114,13 +114,13 @@ const experience = computed(() => [
       "coworkhit": {
         "date": "Since 2022",
         "title": "Referent in Web development and accessibility",
-        "description": "Needs analysis, functional specifications, RGAA 4.1 accessibility audit, development of accessible Web platforms, management of a Web applications portfolio with CI/CD"
+        "description": "Needs analysis, functional specifications, RGAA 4.1 accessibility audit, development of accessible Web platforms, management of a Web applications portfolio with CI/CD."
       },
       "kerpape": {
         "date": "2020 to 2021",
         "duration": "1 year and 6 months",
         "title": "Lead developer PHP, Vue and Vuetify",
-        "description": "Realization of a flexible and adaptable community platform for different communities (personalized pages and contents)."
+        "description": "Realization of a flexible and adaptable community platform for different communities (personalized pages, polls, contacts database management, etc.)."
       },
       "captainvet": {
         "date": "2019 to 2020",
