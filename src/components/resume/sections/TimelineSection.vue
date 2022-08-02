@@ -26,9 +26,9 @@ const { title, items } = defineProps({
         {{ title }}
       </h2>
     </v-card-title>
-    <v-divider role="presentation" />
     <v-card-text class="py-0">
       <v-timeline
+        truncate-line="start"
         line-thickness="1"
         side="end"
       >
@@ -59,8 +59,6 @@ const { title, items } = defineProps({
 >
   :deep(.v-timeline-item__body) {
     padding-inline-start: 0.75rem !important;
-    padding-block-start: 0.75rem !important;
-    padding-block-end: 0.75rem !important;
   }
 
   :deep(.v-timeline-item__opposite) {
