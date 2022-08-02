@@ -13,7 +13,7 @@ const { t } = useI18n();
 const theme = useTheme();
 
 const menu = ref(false);
-const container = ref(undefined as Element|undefined);
+const container = ref(undefined as Element | undefined);
 
 const currentThemeId = computed(() => theme.global.name.value);
 const onThemeChange = (newTheme: string) => {
