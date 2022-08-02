@@ -15,7 +15,7 @@ type LocaleId = keyof typeof locales;
 const { t } = useI18n();
 
 const menu = ref(false);
-const container = ref(null);
+const container = ref(undefined as Element|undefined);
 
 const menuLabel = computed(() => locales[i18n.global.locale.value as LocaleId].name);
 const onLocaleChange = (locale: string) => {
