@@ -12,10 +12,10 @@ import ThemeMenu from '@/components/ThemeMenu.vue';</script>
     <v-main>
       <v-container>
         <header class="d-print-none d-flex align-center pb-6 pb-md-12">
-          <print-btn />
-          <v-spacer />
           <locale-menu />
           <theme-menu class="ml-2" />
+          <v-spacer />
+          <print-btn />
         </header>
         <resume-content />
       </v-container>
