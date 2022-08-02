@@ -7,11 +7,12 @@ import CardSection from '@/components/resume/sections/CardSection.vue';
 import ColoredChip from '@/components/resume/utils/ColoredChip.vue';
 import ColoredChipsList from '@/components/resume/utils/ColoredChipsList.vue';
 import tools from '@/utils/tools';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const projects = [
+const projects = computed(() => [
   {
     category: t('categories.pro'),
     title: 'LifeCompanion',
@@ -52,7 +53,7 @@ const projects = [
       url: 'https://paul-thebaud.github.io/v-phone-input',
     },
   },
-];
+]);
 </script>
 
 <template>
@@ -103,6 +104,27 @@ const projects = [
       },
       "phpUnitGen": {
         "description": "Générateur de squelettes de tests unitaires avec de nombreuses options de configuration et une génération contextuelle."
+      }
+    }
+  },
+  "en": {
+    "title": "Projects",
+    "categories": {
+      "pro": "pro.",
+      "perso": "personal"
+    },
+    "projects": {
+      "lifeCompanion": {
+        "description": "Accessible platform development with stats server for an assistive technology software."
+      },
+      "rehabLab": {
+        "description": "Accessible platform development with confort and community tools (forum, comments, etc.). Community related process automation."
+      },
+      "vPhoneInput": {
+        "description": "International and accessible phone input library."
+      },
+      "phpUnitGen": {
+        "description": "Unit tests skeleton generator with many configuration options and contextual generation."
       }
     }
   }

@@ -7,14 +7,11 @@ import profileWebP from '@/assets/profile.webp';
 import OpenInNewText from '@/components/OpenInNewText.vue';
 import store from '@/store';
 import { mdiEmailOutline, mdiGithub, mdiLinkedin, mdiPhoneOutline } from '@mdi/js';
-import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useDisplay } from 'vuetify';
 
 const { t } = useI18n();
 const { mobile, width } = useDisplay();
-
-const contactColWidth = computed(() => mobile.value && !store.printing ? 12 : 6);
 </script>
 
 <template>
@@ -28,6 +25,7 @@ const contactColWidth = computed(() => mobile.value && !store.printing ? 12 : 6)
         class="align-self-stretch"
         max-height="50vh"
         width="148"
+        alt=""
         cover
       >
         <template #sources>
@@ -106,6 +104,10 @@ const contactColWidth = computed(() => mobile.value && !store.printing ? 12 : 6)
   "fr": {
     "description": "Actuellement référent en développement et accessibilité numérique au CoWork'HIT, je suis un passioné de développement Web, d'accessibilité et d'open source.",
     "phone": "07 70 79 60 98"
+  },
+  "en": {
+    "description": "Currently referent in development and Web accessibility at CoWork'HIT, I am a lover of Web development, accessibility and open source.",
+    "phone": "+33770796098"
   }
 }
 </i18n>

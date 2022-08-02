@@ -3,11 +3,12 @@
   setup
 >
 import TimelineSection from '@/components/resume/sections/TimelineSection.vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const education = [
+const education = computed(() => [
   {
     date: t('education.accessiweb.date'),
     title: t('education.accessiweb.title'),
@@ -28,7 +29,7 @@ const education = [
     title: t('education.dut.title'),
     location: 'IUT, Lannion (22)',
   },
-];
+]);
 </script>
 
 <template>
@@ -70,6 +71,27 @@ const education = [
       "dut": {
         "date": "2016",
         "title": "DUT Informatique"
+      }
+    }
+  },
+  "en": {
+    "title": "Education",
+    "education": {
+      "accessiweb": {
+        "date": "2021",
+        "title": "Web accessibility audit expert"
+      },
+      "master": {
+        "date": "2019",
+        "title": "Master's degree in computer sciences"
+      },
+      "licence": {
+        "date": "2017",
+        "title": "Bachelor's degree in computer engineering"
+      },
+      "dut": {
+        "date": "2016",
+        "title": "Two-year university degree in computer sciences"
       }
     }
   }

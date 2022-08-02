@@ -4,6 +4,7 @@
 >
 import OpenInNewIcon from '@/components/OpenInNewIcon.vue';
 import store from '@/store';
+import { mdiInformationOutline } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -12,8 +13,13 @@ const { t } = useI18n();
 <template>
   <div
     v-if="store.printing"
-    class="text-center"
+    class="d-flex align-center justify-center text-center"
   >
+    <v-icon
+      :icon="mdiInformationOutline"
+      size="1rem"
+      start
+    />
     <i18n-t
       keypath="seeWebVersion"
       tag="label"
@@ -35,11 +41,11 @@ const { t } = useI18n();
 <i18n>
 {
   "fr": {
-    "seeWebVersion": "Vous pouvez consulter {0} avec de meilleures options de contrastes.",
+    "seeWebVersion": "Vous pouvez consulter {0} avec de meilleures options de contrastes et de langues.",
     "webVersion": "une version Web de ce CV"
   },
   "en": {
-    "seeWebVersion": "You can check out {0} with better contrast options.",
+    "seeWebVersion": "You can check out {0} with better contrast and languages options.",
     "webVersion": "a Web version of this resume"
   }
 }

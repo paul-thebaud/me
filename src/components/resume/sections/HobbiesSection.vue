@@ -4,17 +4,18 @@
 >
 import CardSection from '@/components/resume/sections/CardSection.vue';
 import ColoredChipsList from '@/components/resume/utils/ColoredChipsList.vue';
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const hobbies = [
+const hobbies = computed(() => [
   { name: t('hobbies.music'), color: 'primary' },
   { name: t('hobbies.openSource'), color: 'primary' },
   { name: t('hobbies.bicycle'), color: 'primary' },
   { name: t('hobbies.cinema'), color: 'primary' },
   { name: t('hobbies.videoGames'), color: 'primary' },
-];
+]);
 </script>
 
 <template>
@@ -33,6 +34,16 @@ const hobbies = [
       "bicycle": "vélo",
       "cinema": "cinéma",
       "videoGames": "jeux vidéo"
+    }
+  },
+  "en": {
+    "title": "Hobbies",
+    "hobbies": {
+      "music": "music listening",
+      "openSource": "open source",
+      "bicycle": "bicycle",
+      "cinema": "cinema",
+      "videoGames": "video games"
     }
   }
 }

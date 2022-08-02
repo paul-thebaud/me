@@ -31,6 +31,10 @@ import ThemeMenu from '@/components/ThemeMenu.vue';</script>
   lang="scss"
   scoped
 >
+  :global(.v-card > .v-card__loader) {
+    display: none !important;
+  }
+
   .v-container {
     max-width: 1100px !important;
   }
