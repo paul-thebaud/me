@@ -15590,10 +15590,10 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
             ]),
             _: 1
           }),
-          createVNode(VDivider, { role: "presentation" }),
           createVNode(VCardText, { class: "py-0" }, {
             default: withCtx(() => [
               createVNode(VTimeline, {
+                "truncate-line": "start",
                 "line-thickness": "1",
                 side: "end"
               }, {
@@ -15624,7 +15624,7 @@ const _sfc_main$f = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const TimelineSection_vue_vue_type_style_index_0_scoped_09d7d1b3_lang = "";
+const TimelineSection_vue_vue_type_style_index_0_scoped_e2511ef4_lang = "";
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -15632,7 +15632,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-09d7d1b3"]]);
+const TimelineSection = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["__scopeId", "data-v-e2511ef4"]]);
 const _hoisted_1$8 = { class: "text-h6" };
 const _hoisted_2$5 = { class: "font-weight-bold" };
 const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
