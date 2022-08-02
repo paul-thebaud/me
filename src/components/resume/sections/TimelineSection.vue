@@ -35,6 +35,7 @@ const { title, items } = defineProps({
         <v-timeline-item
           v-for="(item, index) in items"
           :key="`items.${index}`"
+          dot-color="primary"
           size="x-small"
         >
           <template #opposite>
