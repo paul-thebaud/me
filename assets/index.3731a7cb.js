@@ -11917,12 +11917,18 @@ const i18n = createI18n({
     }
   }
 });
+function changeLocale(locale) {
+  i18n.global.locale.value = locale;
+  document.documentElement.setAttribute("lang", locale);
+  document.title = i18n.global.t("appTitle");
+}
 var mdiBrightness1 = "M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z";
 var mdiBrightness7 = "M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z";
 var mdiCircleHalfFull = "M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M12 4A8 8 0 0 1 20 12A8 8 0 0 1 12 20V4Z";
 var mdiEarth = "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z";
 var mdiEmailOutline = "M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z";
 var mdiGithub = "M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z";
+var mdiInformationOutline = "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z";
 var mdiLinkedin = "M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z";
 var mdiOpenInNew = "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z";
 var mdiPalette = "M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z";
@@ -15000,8 +15006,7 @@ const _sfc_main$h = /* @__PURE__ */ defineComponent$1({
     useI18n();
     const menuLabel = computed(() => locales[i18n.global.locale.value].name);
     const onLocaleChange = (locale) => {
-      i18n.global.locale.value = locale;
-      document.documentElement.setAttribute("lang", locale.toLowerCase());
+      changeLocale(locale);
     };
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VMenu, null, {
@@ -15634,7 +15639,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
   __name: "EducationSection",
   setup(__props) {
     const { t } = useI18n();
-    const education = [
+    const education = computed(() => [
       {
         date: t("education.accessiweb.date"),
         title: t("education.accessiweb.title"),
@@ -15655,11 +15660,11 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
         title: t("education.dut.title"),
         location: "IUT, Lannion (22)"
       }
-    ];
+    ]);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(TimelineSection, {
         title: unref(t)("title"),
-        items: education
+        items: unref(education)
       }, {
         date: withCtx(({ item }) => [
           createTextVNode(toDisplayString$1(item.date), 1)
@@ -15669,7 +15674,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent$1({
           createBaseVNode("span", _hoisted_2$5, toDisplayString$1(item.location), 1)
         ]),
         _: 1
-      }, 8, ["title"]);
+      }, 8, ["title", "items"]);
     };
   }
 });
@@ -15725,6 +15730,54 @@ function block0$9(Component) {
             }
           }
         }
+      },
+      "en": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Education"]);
+        },
+        "education": {
+          "accessiweb": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2021"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Web accessibility audit expert"]);
+            }
+          },
+          "master": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2019"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Master's degree in computer sciences"]);
+            }
+          },
+          "licence": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2017"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Bachelor's degree in computer engineering"]);
+            }
+          },
+          "dut": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2016"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Two-year university degree in computer sciences"]);
+            }
+          }
+        }
       }
     }
   });
@@ -15739,46 +15792,46 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
   __name: "ExperienceSection",
   setup(__props) {
     const { t } = useI18n();
-    const experience = [
+    const experience = computed(() => [
       {
         date: t("experience.coworkhit.date"),
         title: t("experience.coworkhit.title"),
         description: t("experience.coworkhit.description"),
-        location: t("experience.coworkhit.location")
+        location: "CoWork'HIT, Lorient (56)"
       },
       {
         date: t("experience.kerpape.date"),
         duration: t("experience.kerpape.duration"),
         title: t("experience.kerpape.title"),
         description: t("experience.kerpape.description"),
-        location: t("experience.kerpape.location")
+        location: "CMRRF de Kerpape, Lorient (56)"
       },
       {
         date: t("experience.captainvet.date"),
         duration: t("experience.captainvet.duration"),
         title: t("experience.captainvet.title"),
         description: t("experience.captainvet.description"),
-        location: t("experience.captainvet.location")
+        location: "CaptainVet, Brest (29)"
       },
       {
         date: t("experience.ubo.date"),
         duration: t("experience.ubo.duration"),
         title: t("experience.ubo.title"),
         description: t("experience.ubo.description"),
-        location: t("experience.ubo.location")
+        location: "UBO, Brest (29)"
       },
       {
         date: t("experience.oktave.date"),
         duration: t("experience.oktave.duration"),
         title: t("experience.oktave.title"),
         description: t("experience.oktave.description"),
-        location: t("experience.oktave.location")
+        location: "Oktave, Brest (29)"
       }
-    ];
+    ]);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(TimelineSection, {
         title: unref(t)("title"),
-        items: experience
+        items: unref(experience)
       }, {
         date: withCtx(({ item }) => [
           createTextVNode(toDisplayString$1(item.date) + " ", 1),
@@ -15793,7 +15846,7 @@ const _sfc_main$d = /* @__PURE__ */ defineComponent$1({
           createBaseVNode("span", _hoisted_4$1, toDisplayString$1(item.location), 1)
         ]),
         _: 1
-      }, 8, ["title"]);
+      }, 8, ["title", "items"]);
     };
   }
 });
@@ -15820,10 +15873,6 @@ function block0$8(Component) {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
               return _normalize(["Etude des besoins, r\xE9daction de cahier des charges, audit d'accessibilit\xE9 RGAA 4.1, d\xE9veloppement de plateformes Web accessibles, gestions d'un parc d'applicatifs Web avec CI/CD"]);
-            },
-            "location": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["CoWork'HIT, Lorient (56)"]);
             }
           },
           "kerpape": {
@@ -15842,10 +15891,6 @@ function block0$8(Component) {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
               return _normalize(["R\xE9alisation d'une plateforme communautaire flexible et adaptable \xE0 diff\xE9rentes communaut\xE9s (pages personnalis\xE9s et contenus m\xE9tiers)."]);
-            },
-            "location": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["CMRRF de Kerpape, Lorient (56)"]);
             }
           },
           "captainvet": {
@@ -15864,10 +15909,6 @@ function block0$8(Component) {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
               return _normalize(["Gestion fullstack d'une application de prise de rendez-vous v\xE9t\xE9rinaire. Uniformisation des API via la sp\xE9cification JSON:API."]);
-            },
-            "location": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["CaptainVet, Brest (29)"]);
             }
           },
           "ubo": {
@@ -15886,10 +15927,6 @@ function block0$8(Component) {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
               return _normalize(["Enseignement du langage objet Python \xE0 des Licences 2\xE8me ann\xE9e."]);
-            },
-            "location": (ctx) => {
-              const { normalize: _normalize } = ctx;
-              return _normalize(["UBO, Brest (29)"]);
             }
           },
           "oktave": {
@@ -15908,10 +15945,100 @@ function block0$8(Component) {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
               return _normalize(["Gestion backend d'une application de questionnaires en SAAS."]);
-            },
-            "location": (ctx) => {
+            }
+          }
+        }
+      },
+      "en": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Experience"]);
+        },
+        "experience": {
+          "coworkhit": {
+            "date": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["Oktave, Brest (29)"]);
+              return _normalize(["Since 2022"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Referent in Web development and accessibility"]);
+            },
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Needs analysis, functional specifications, RGAA 4.1 accessibility audit, development of accessible Web platforms, management of a Web applications portfolio with CI/CD"]);
+            }
+          },
+          "kerpape": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2020 to 2021"]);
+            },
+            "duration": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["1 year and 6 months"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Lead developer PHP, Vue and Vuetify"]);
+            },
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Realization of a flexible and adaptable community platform for different communities (personalized pages and contents)."]);
+            }
+          },
+          "captainvet": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2019 to 2020"]);
+            },
+            "duration": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["1 year"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Lead developer PHP, Vue and BootstrapVue"]);
+            },
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Fullstack management of a veterinary appointment booking application. Standardization of APIs via the JSON:API specification."]);
+            }
+          },
+          "ubo": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2020"]);
+            },
+            "duration": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["5 months"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Part-time teacher"]);
+            },
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Teaching of the Python object language to 2nd year bachelors."]);
+            }
+          },
+          "oktave": {
+            "date": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["2018 to 2019"]);
+            },
+            "duration": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["1 year"]);
+            },
+            "title": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Backend developer in internship then alternation"]);
+            },
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Backend management of a survey application as a SAAS."]);
             }
           }
         }
@@ -16298,19 +16425,19 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent$1({
   __name: "HobbiesSection",
   setup(__props) {
     const { t } = useI18n();
-    const hobbies = [
+    const hobbies = computed(() => [
       { name: t("hobbies.music"), color: "primary" },
       { name: t("hobbies.openSource"), color: "primary" },
       { name: t("hobbies.bicycle"), color: "primary" },
       { name: t("hobbies.cinema"), color: "primary" },
       { name: t("hobbies.videoGames"), color: "primary" }
-    ];
+    ]);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$c, {
         title: unref(t)("title")
       }, {
         default: withCtx(() => [
-          createVNode(_sfc_main$a, { items: hobbies })
+          createVNode(_sfc_main$a, { items: unref(hobbies) }, null, 8, ["items"])
         ]),
         _: 1
       }, 8, ["title"]);
@@ -16347,6 +16474,34 @@ function block0$7(Component) {
           "videoGames": (ctx) => {
             const { normalize: _normalize } = ctx;
             return _normalize(["jeux vid\xE9o"]);
+          }
+        }
+      },
+      "en": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Hobbies"]);
+        },
+        "hobbies": {
+          "music": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["music listening"]);
+          },
+          "openSource": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["open source"]);
+          },
+          "bicycle": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["bicycle"]);
+          },
+          "cinema": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["cinema"]);
+          },
+          "videoGames": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["video games"]);
           }
         }
       }
@@ -16626,18 +16781,31 @@ const VRow = defineComponent({
 });
 const VSpacer = createSimpleFunctional("flex-grow-1", "div", "VSpacer");
 const _hoisted_1$3 = ["srcset"];
-const _hoisted_2$2 = { class: "w-100" };
-const _hoisted_3$1 = /* @__PURE__ */ createBaseVNode("h1", { class: "text-h4" }, " Paul Th\xE9baud ", -1);
-const _hoisted_4 = { class: "text-body-1 mb-2" };
-const _hoisted_5 = /* @__PURE__ */ createTextVNode(" paul.thebaud29@gmail.com ");
-const _hoisted_6 = /* @__PURE__ */ createTextVNode(" GitHub ");
-const _hoisted_7 = /* @__PURE__ */ createTextVNode(" LinkedIn ");
+const _hoisted_2$2 = ["srcset"];
+const _hoisted_3$1 = { class: "w-100" };
+const _hoisted_4 = /* @__PURE__ */ createBaseVNode("h1", { class: "text-h4" }, " Paul Th\xE9baud ", -1);
+const _hoisted_5 = { class: "text-body-1 mb-2" };
+const _hoisted_6 = /* @__PURE__ */ createTextVNode(" paul.thebaud29@gmail.com ");
+const _hoisted_7 = /* @__PURE__ */ createTextVNode(" GitHub ");
+const _hoisted_8 = /* @__PURE__ */ createTextVNode(" LinkedIn ");
 const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
   __name: "IntroductionSection",
   setup(__props) {
     const { t } = useI18n();
     const { mobile, width } = useDisplay();
-    computed(() => mobile.value && !store.printing ? 12 : 6);
+    const img = ref(null);
+    const fixImgAlt = () => {
+      var _a;
+      const imgEl = ((_a = img.value.$el) == null ? void 0 : _a.getElementsByTagName("img")[0]) || void 0;
+      if (imgEl) {
+        imgEl.alt = "";
+      } else {
+        setTimeout(() => fixImgAlt(), 100);
+      }
+    };
+    onMounted(() => {
+      fixImgAlt();
+    });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(VCard, null, {
         default: withCtx(() => [
@@ -16645,6 +16813,8 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
             class: normalizeClass([{ "flex-wrap": unref(width) <= 500 && !unref(store).printing }, "d-flex"])
           }, [
             createVNode(VImg, {
+              ref_key: "img",
+              ref: img,
               src: unref(profileJPG),
               class: "align-self-stretch",
               "max-height": "50vh",
@@ -16652,20 +16822,27 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
               cover: ""
             }, {
               sources: withCtx(() => [
-                createBaseVNode("source", { srcset: unref(profileWebP) }, null, 8, _hoisted_1$3)
+                createBaseVNode("source", {
+                  srcset: unref(profileWebP),
+                  type: "image/webp"
+                }, null, 8, _hoisted_1$3),
+                createBaseVNode("source", {
+                  srcset: unref(profileJPG),
+                  type: "image/jpeg"
+                }, null, 8, _hoisted_2$2)
               ]),
               _: 1
             }, 8, ["src"]),
-            createBaseVNode("div", _hoisted_2$2, [
+            createBaseVNode("div", _hoisted_3$1, [
               createVNode(VCardTitle, null, {
                 default: withCtx(() => [
-                  _hoisted_3$1
+                  _hoisted_4
                 ]),
                 _: 1
               }),
               createVNode(VCardText, null, {
                 default: withCtx(() => [
-                  createBaseVNode("p", _hoisted_4, toDisplayString$1(unref(t)("description")), 1),
+                  createBaseVNode("p", _hoisted_5, toDisplayString$1(unref(t)("description")), 1),
                   createVNode(VRow, { "no-gutters": "" }, {
                     default: withCtx(() => [
                       createVNode(VCol, { class: "d-flex flex-column align-start" }, {
@@ -16678,7 +16855,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                             size: "small"
                           }, {
                             default: withCtx(() => [
-                              _hoisted_5
+                              _hoisted_6
                             ]),
                             _: 1
                           }, 8, ["prepend-icon"]),
@@ -16711,7 +16888,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                             size: "small"
                           }, {
                             default: withCtx(() => [
-                              _hoisted_6,
+                              _hoisted_7,
                               createVNode(_sfc_main$8)
                             ]),
                             _: 1
@@ -16726,7 +16903,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent$1({
                             size: "small"
                           }, {
                             default: withCtx(() => [
-                              _hoisted_7,
+                              _hoisted_8,
                               createVNode(_sfc_main$8)
                             ]),
                             _: 1
@@ -16761,6 +16938,16 @@ function block0$5(Component) {
         "phone": (ctx) => {
           const { normalize: _normalize } = ctx;
           return _normalize(["07 70 79 60 98"]);
+        }
+      },
+      "en": {
+        "description": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Currently referent in development and Web accessibility at CoWork'HIT, I am a lover of Web development, accessibility and open source."]);
+        },
+        "phone": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["+33770796098"]);
         }
       }
     }
@@ -16895,7 +17082,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
   __name: "ProjectsSection",
   setup(__props) {
     const { t } = useI18n();
-    const projects = [
+    const projects = computed(() => [
       {
         category: t("categories.pro"),
         title: "LifeCompanion",
@@ -16936,11 +17123,11 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
           url: "https://paul-thebaud.github.io/v-phone-input"
         }
       }
-    ];
+    ]);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$c, {
         title: unref(t)("title"),
-        items: projects
+        items: unref(projects)
       }, {
         item: withCtx(({ item }) => [
           createBaseVNode("h3", _hoisted_1$2, [
@@ -16963,7 +17150,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
           }, null, 8, ["items"])
         ]),
         _: 1
-      }, 8, ["title"]);
+      }, 8, ["title", "items"]);
     };
   }
 });
@@ -17013,6 +17200,48 @@ function block0$4(Component) {
             }
           }
         }
+      },
+      "en": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Projects"]);
+        },
+        "categories": {
+          "pro": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["pro."]);
+          },
+          "perso": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["personal"]);
+          }
+        },
+        "projects": {
+          "lifeCompanion": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Accessible platform development with stats server for an assistive technology software."]);
+            }
+          },
+          "rehabLab": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Accessible platform development with confort and community tools (forum, comments, etc.). Community related process automation."]);
+            }
+          },
+          "vPhoneInput": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["International and accessible phone input library."]);
+            }
+          },
+          "phpUnitGen": {
+            "description": (ctx) => {
+              const { normalize: _normalize } = ctx;
+              return _normalize(["Unit tests skeleton generator with many configuration options and contextual generation."]);
+            }
+          }
+        }
       }
     }
   });
@@ -17024,7 +17253,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
   __name: "SkillsSection",
   setup(__props) {
     const { t } = useI18n();
-    const skills = [
+    const skills = computed(() => [
       {
         title: t("categories.systems"),
         tools: [tools.LINUX, tools.MACOS, tools.WINDOWS]
@@ -17048,8 +17277,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
       {
         title: t("categories.others"),
         tools: [
-          { name: "Etude des besoins", color: "primary" },
-          { name: "Sp\xE9cifications fonctionnelles", color: "primary" },
+          { name: t("skills.needsAnalysis"), color: "primary" },
+          { name: t("skills.functionalSpecifications"), color: "primary" },
           tools.HEROKU,
           tools.GITHUB_ACTIONS,
           tools.SASS,
@@ -17064,15 +17293,15 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
       {
         title: t("categories.languages"),
         tools: [
-          { name: "Fran\xE7ais", color: "indigo" },
-          { name: "Anglais (CLES en 2018)", color: "red" }
+          { name: t("skills.french"), color: "indigo" },
+          { name: t("skills.english"), color: "red" }
         ]
       }
-    ];
+    ]);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(_sfc_main$c, {
         title: unref(t)("title"),
-        items: skills
+        items: unref(skills)
       }, {
         item: withCtx(({ item }) => [
           createBaseVNode("h3", _hoisted_1$1, toDisplayString$1(item.title), 1),
@@ -17081,7 +17310,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent$1({
           }, null, 8, ["items"])
         ]),
         _: 1
-      }, 8, ["title"]);
+      }, 8, ["title", "items"]);
     };
   }
 });
@@ -17128,6 +17357,82 @@ function block0$3(Component) {
             const { normalize: _normalize } = ctx;
             return _normalize(["Langues"]);
           }
+        },
+        "skills": {
+          "needsAnalysis": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["\xC9tude des besoins"]);
+          },
+          "functionalSpecifications": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Sp\xE9cifications fonctionnelles"]);
+          },
+          "french": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Fran\xE7ais"]);
+          },
+          "english": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Anglais (CLES en 2018)"]);
+          }
+        }
+      },
+      "en": {
+        "title": (ctx) => {
+          const { normalize: _normalize } = ctx;
+          return _normalize(["Skills"]);
+        },
+        "categories": {
+          "systems": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Systems"]);
+          },
+          "programmingLanguages": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Programming languages"]);
+          },
+          "frameworks": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Frameworks"]);
+          },
+          "database": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Databases"]);
+          },
+          "versioning": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Versioning"]);
+          },
+          "projects": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Projects"]);
+          },
+          "others": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Others"]);
+          },
+          "languages": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Languages"]);
+          }
+        },
+        "skills": {
+          "needsAnalysis": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Needs analysis"]);
+          },
+          "functionalSpecifications": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["Functional specifications"]);
+          },
+          "french": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["French (native)"]);
+          },
+          "english": (ctx) => {
+            const { normalize: _normalize } = ctx;
+            return _normalize(["English (CLES in 2018)"]);
+          }
         }
       }
     }
@@ -17137,7 +17442,7 @@ if (typeof block0$3 === "function")
   block0$3(_sfc_main$4);
 const _hoisted_1 = {
   key: 0,
-  class: "text-center"
+  class: "d-flex align-center justify-center text-center"
 };
 const _hoisted_2 = {
   class: "text-primary",
@@ -17152,6 +17457,11 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
     return (_ctx, _cache) => {
       const _component_i18n_t = resolveComponent("i18n-t");
       return unref(store).printing ? (openBlock(), createElementBlock("div", _hoisted_1, [
+        createVNode(VIcon, {
+          icon: unref(mdiInformationOutline),
+          size: "1rem",
+          start: ""
+        }, null, 8, ["icon"]),
         createVNode(_component_i18n_t, {
           keypath: "seeWebVersion",
           tag: "label",
@@ -17177,7 +17487,7 @@ function block0$2(Component) {
       "fr": {
         "seeWebVersion": (ctx) => {
           const { normalize: _normalize, interpolate: _interpolate, list: _list } = ctx;
-          return _normalize(["Vous pouvez consulter ", _interpolate(_list(0)), " avec de meilleures options de contrastes."]);
+          return _normalize(["Vous pouvez consulter ", _interpolate(_list(0)), " avec de meilleures options de contrastes et de langues."]);
         },
         "webVersion": (ctx) => {
           const { normalize: _normalize } = ctx;
@@ -17187,7 +17497,7 @@ function block0$2(Component) {
       "en": {
         "seeWebVersion": (ctx) => {
           const { normalize: _normalize, interpolate: _interpolate, list: _list } = ctx;
-          return _normalize(["You can check out ", _interpolate(_list(0)), " with better contrast options."]);
+          return _normalize(["You can check out ", _interpolate(_list(0)), " with better contrast and languages options."]);
         },
         "webVersion": (ctx) => {
           const { normalize: _normalize } = ctx;
@@ -17650,7 +17960,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_9b164b98_lang = "";
+const App_vue_vue_type_style_index_0_scoped_6cdf96da_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -17693,12 +18003,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9b164b98"]]);
-function changeLocale(locale) {
-  i18n.global.locale.value = locale;
-  document.documentElement.setAttribute("lang", locale);
-  document.title = i18n.global.t("appTitle");
-}
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-6cdf96da"]]);
 function defaultLocale() {
   let defaultLocale2 = locales.fr.id;
   (window.navigator.languages || []).some((language) => {
