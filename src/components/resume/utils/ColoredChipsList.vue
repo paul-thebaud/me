@@ -14,12 +14,16 @@ const { items } = defineProps({
 </script>
 
 <template>
-  <div class="d-flex align-center flex-wrap">
+  <div
+    role="list"
+    class="d-flex align-center flex-wrap"
+  >
     <colored-chip
       v-for="(item, index) in items"
       :key="`items.${index}`"
       :name="item.name"
       :color="item.color"
+      role="listitem"
       class="mr-1 mb-1"
     />
   </div>
