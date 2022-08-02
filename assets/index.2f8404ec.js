@@ -16396,7 +16396,10 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const _hoisted_1$6 = { class: "d-flex align-center flex-wrap" };
+const _hoisted_1$6 = {
+  role: "list",
+  class: "d-flex align-center flex-wrap"
+};
 const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
   __name: "ColoredChipsList",
   props: {
@@ -16413,6 +16416,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent$1({
             key: `items.${index}`,
             name: item.name,
             color: item.color,
+            role: "listitem",
             class: "mr-1 mb-1"
           }, null, 8, ["name", "color"]);
         }), 128))
