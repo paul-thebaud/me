@@ -7,6 +7,10 @@ $card-title-word-break: break-word,
 $card-title-white-space: normal !important,
 );
 
+a {
+  color: rgb(var(--v-theme-primary));
+}
+
 .text--monospace {
   font-family: "Source Code Pro", monospace;
 }

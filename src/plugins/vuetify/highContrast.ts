@@ -7,7 +7,7 @@ export default {
     'on-background': '#170362',
     surface: '#fffbff',
     'on-surface': '#000000',
-    primary: '#170362',
+    primary: '#1d3072',
     'on-primary': '#ffffff',
     secondary: '#753cc8',
     'on-secondary': '#ffffff',

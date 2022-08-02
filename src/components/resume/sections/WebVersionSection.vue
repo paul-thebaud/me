@@ -2,7 +2,7 @@
   lang="ts"
   setup
 >
-import OpenInNewIcon from '@/components/OpenInNewIcon.vue';
+import OpenInNewText from '@/components/OpenInNewText.vue';
 import store from '@/store';
 import { mdiInformationOutline } from '@mdi/js';
 import { useI18n } from 'vue-i18n';
@@ -22,8 +22,7 @@ const { t } = useI18n();
     />
     <i18n-t
       keypath="seeWebVersion"
-      tag="label"
-      for="tos"
+      tag="div"
     >
       <a
         class="text-primary"
@@ -32,7 +31,7 @@ const { t } = useI18n();
         rel="noreferrer nofollow"
       >
         {{ t('webVersion') }}
-        <open-in-new-icon size="0.75rem" />
+        <open-in-new-text />
       </a>
     </i18n-t>
   </div>

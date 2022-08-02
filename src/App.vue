@@ -11,13 +11,13 @@ import ThemeMenu from '@/components/ThemeMenu.vue';</script>
   <v-app>
     <v-main>
       <v-container>
-        <header class="d-print-none d-flex align-center">
+        <header class="d-print-none d-flex align-center pb-6 pb-md-12">
           <print-btn />
           <v-spacer />
           <locale-menu />
           <theme-menu class="ml-2" />
         </header>
-        <resume-content class="mt-md-12" />
+        <resume-content />
       </v-container>
     </v-main>
   </v-app>
@@ -36,6 +36,11 @@ import ThemeMenu from '@/components/ThemeMenu.vue';</script>
   }
 
   @media print {
+    @page {
+      size: 210mm 297mm;
+      margin: 0;
+    }
+
     .v-main {
       padding: 0 !important;
     }

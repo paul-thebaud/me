@@ -2,7 +2,7 @@
   lang="ts"
   setup
 >
-import OpenInNewIcon from '@/components/OpenInNewIcon.vue';
+import OpenInNewText from '@/components/OpenInNewText.vue';
 import CardSection from '@/components/resume/sections/CardSection.vue';
 import ColoredChip from '@/components/resume/utils/ColoredChip.vue';
 import ColoredChipsList from '@/components/resume/utils/ColoredChipsList.vue';
@@ -69,11 +69,11 @@ const projects = computed(() => [
           rel="noreferrer nofollow"
         >
           {{ item.title }}
-          <open-in-new-icon size="1rem" />
+          <open-in-new-text />
         </a>
         <colored-chip
           :name="item.category"
-          color="secondary"
+          color="primary"
         />
       </h3>
       <p class="text-body-2 mb-2">
