@@ -15870,7 +15870,7 @@ function block0$8(Component) {
             },
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["Etude des besoins, r\xE9daction de cahier des charges, audit d'accessibilit\xE9 RGAA 4.1, d\xE9veloppement de plateformes Web accessibles, gestions d'un parc d'applicatifs Web avec CI/CD"]);
+              return _normalize(["\xC9tude des besoins, r\xE9daction de cahier des charges, audit d'accessibilit\xE9 RGAA 4.1, d\xE9veloppement de plateformes Web accessibles, gestions d'un parc d'applicatifs Web avec CI/CD."]);
             }
           },
           "kerpape": {
@@ -15888,7 +15888,7 @@ function block0$8(Component) {
             },
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["R\xE9alisation d'une plateforme communautaire flexible et adaptable \xE0 diff\xE9rentes communaut\xE9s (pages personnalis\xE9s et contenus m\xE9tiers)."]);
+              return _normalize(["R\xE9alisation d'une plateforme communautaire flexible et adaptable \xE0 diff\xE9rentes communaut\xE9s (pages personnalisables, sondages, gestion d'une base de contacts, etc.)."]);
             }
           },
           "captainvet": {
@@ -15964,7 +15964,7 @@ function block0$8(Component) {
             },
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["Needs analysis, functional specifications, RGAA 4.1 accessibility audit, development of accessible Web platforms, management of a Web applications portfolio with CI/CD"]);
+              return _normalize(["Needs analysis, functional specifications, RGAA 4.1 accessibility audit, development of accessible Web platforms, management of a Web applications portfolio with CI/CD."]);
             }
           },
           "kerpape": {
@@ -15982,7 +15982,7 @@ function block0$8(Component) {
             },
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["Realization of a flexible and adaptable community platform for different communities (personalized pages and contents)."]);
+              return _normalize(["Realization of a flexible and adaptable community platform for different communities (personalized pages, polls, contacts database management, etc.)."]);
             }
           },
           "captainvet": {
@@ -17178,7 +17178,7 @@ function block0$4(Component) {
           "vPhoneInput": {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["Librairie de champ de formulaire accessible pour la saisie d'un num\xE9ro de t\xE9l\xE9phone international accessible."]);
+              return _normalize(["Librairie de champ de formulaire accessible pour la saisie d'un num\xE9ro de t\xE9l\xE9phone au format international pour Vuetify."]);
             }
           },
           "phpUnitGen": {
@@ -17220,7 +17220,7 @@ function block0$4(Component) {
           "vPhoneInput": {
             "description": (ctx) => {
               const { normalize: _normalize } = ctx;
-              return _normalize(["International and accessible phone input library."]);
+              return _normalize(["International and accessible phone input library for Vuetify."]);
             }
           },
           "phpUnitGen": {
