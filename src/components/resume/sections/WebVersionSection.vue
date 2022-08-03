@@ -28,7 +28,7 @@ const { t } = useI18n();
         class="text-primary"
         href="https://paul-thebaud.github.io/me/"
         target="_blank"
-        rel="noreferrer nofollow"
+        rel="noreferrer noopener"
       >
         {{ t('webVersion') }}
         <open-in-new-text />

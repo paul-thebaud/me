@@ -66,7 +66,7 @@ const projects = computed(() => [
         <a
           :href="item.website.url"
           target="_blank"
-          rel="noreferrer nofollow"
+          rel="noreferrer noopener"
         >
           {{ item.title }}
           <open-in-new-text />
