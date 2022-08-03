@@ -14,7 +14,7 @@ const theme = useTheme();
 const menu = ref(false);
 const container = ref(undefined as Element | undefined);
 
-const currentThemeId = computed(() => theme.global.name.value);
+const currentThemeId = computed(() => theme.global.name.value as keyof typeof themes);
 const onThemeChange = (newTheme: string) => {
   theme.global.name.value = newTheme;
   menu.value = false;
@@ -28,8 +28,8 @@ const onThemeChange = (newTheme: string) => {
   >
     <template #activator="{ props }">
       <responsive-btn
-        :icon="themes[theme.global.name.value].icon"
-        :label="t(`themes.${theme.global.name.value}`)"
+        :icon="themes[currentThemeId].icon"
+        :label="t(`themes.${currentThemeId}`)"
         class="mr-2"
         variant="tonal"
         color="primary"
