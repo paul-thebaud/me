@@ -11912,7 +11912,6 @@ var mdiEmailOutline = "M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 
 var mdiGithub = "M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z";
 var mdiInformationOutline = "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z";
 var mdiLinkedin = "M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z";
-var mdiPalette = "M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z";
 var mdiPhoneOutline = "M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.5 8,3 7.5,3H4C3.5,3 3,3.5 3,4C3,13.4 10.6,21 20,21C20.5,21 21,20.5 21,20V16.5C21,16 20.5,15.5 20,15.5M5,5H6.5C6.6,5.9 6.8,6.8 7,7.6L5.8,8.8C5.4,7.6 5.1,6.3 5,5M19,19C17.7,18.9 16.4,18.6 15.2,18.2L16.4,17C17.2,17.2 18.1,17.4 19,17.4V19Z";
 var mdiPrinterOutline = "M19 8C20.66 8 22 9.34 22 11V17H18V21H6V17H2V11C2 9.34 3.34 8 5 8H6V3H18V8H19M8 5V8H16V5H8M16 19V15H8V19H16M18 15H20V11C20 10.45 19.55 10 19 10H5C4.45 10 4 10.45 4 11V15H6V13H18V15M19 11.5C19 12.05 18.55 12.5 18 12.5C17.45 12.5 17 12.05 17 11.5C17 10.95 17.45 10.5 18 10.5C18.55 10.5 19 10.95 19 11.5Z";
 const VDivider = defineComponent({
@@ -16884,7 +16883,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
                             "prepend-icon": unref(mdiGithub),
                             href: "https://github.com/paul-thebaud",
                             target: "_blank",
-                            rel: "noreferrer nofollow",
+                            rel: "noreferrer noopener",
                             variant: "text",
                             color: "primary",
                             size: "small"
@@ -16899,7 +16898,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent$1({
                             "prepend-icon": unref(mdiLinkedin),
                             href: "https://linkedin.com/in/paul-thebaud/",
                             target: "_blank",
-                            rel: "noreferrer nofollow",
+                            rel: "noreferrer noopener",
                             variant: "text",
                             color: "primary",
                             size: "small"
@@ -17122,7 +17121,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent$1({
             createBaseVNode("a", {
               href: item.website.url,
               target: "_blank",
-              rel: "noreferrer nofollow"
+              rel: "noreferrer noopener"
             }, [
               createTextVNode(toDisplayString$1(item.title) + " ", 1),
               createVNode(_sfc_main$7)
@@ -17436,7 +17435,7 @@ const _hoisted_2 = {
   class: "text-primary",
   href: "https://paul-thebaud.github.io/me/",
   target: "_blank",
-  rel: "noreferrer nofollow"
+  rel: "noreferrer noopener"
 };
 const _sfc_main$3 = /* @__PURE__ */ defineComponent$1({
   __name: "WebVersionSection",
@@ -17557,8 +17556,9 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent$1({
         }, {
           activator: withCtx(({ props }) => [
             createVNode(_sfc_main$h, mergeProps({
-              icon: unref(mdiPalette),
-              label: unref(t)(`themes.${unref(theme).global.name.value}`),
+              icon: unref(themes)[unref(currentThemeId)].icon,
+              label: unref(t)(`themes.${unref(currentThemeId)}`),
+              class: "mr-2",
               variant: "tonal",
               color: "primary"
             }, { ..._ctx.$attrs, ...props }), null, 16, ["icon", "label"])
@@ -17728,8 +17728,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
               createVNode(VContainer, null, {
                 default: withCtx(() => [
                   createBaseVNode("header", _hoisted_1, [
+                    createVNode(_sfc_main$1),
                     createVNode(_sfc_main$g),
-                    createVNode(_sfc_main$1, { class: "ml-2" }),
                     createVNode(VSpacer),
                     createVNode(_sfc_main$f)
                   ]),
@@ -17746,7 +17746,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent$1({
     };
   }
 });
-const App_vue_vue_type_style_index_0_scoped_a5fc4e26_lang = "";
+const App_vue_vue_type_style_index_0_scoped_7f6e7754_lang = "";
 function block0(Component) {
   Component.__i18n = Component.__i18n || [];
   Component.__i18n.push({
@@ -17789,7 +17789,7 @@ function block0(Component) {
 }
 if (typeof block0 === "function")
   block0(_sfc_main);
-const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a5fc4e26"]]);
+const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-7f6e7754"]]);
 function defaultLocale() {
   let defaultLocale2 = locales.fr.id;
   (window.navigator.languages || []).some((language) => {

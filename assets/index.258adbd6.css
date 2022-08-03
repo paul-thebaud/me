@@ -6,7 +6,7 @@
 }.v-card > .v-card__loader {
   display: none !important;
 }
-.v-container[data-v-a5fc4e26] {
+.v-container[data-v-7f6e7754] {
   max-width: 1100px !important;
 }
 @media print {
@@ -14,10 +14,10 @@
     size: 210mm 297mm;
     margin: 0;
 }
-.v-main[data-v-a5fc4e26] {
+.v-main[data-v-7f6e7754] {
     padding: 0 !important;
 }
-.v-container[data-v-a5fc4e26] {
+.v-container[data-v-7f6e7754] {
     padding: 10mm !important;
 }
 }
