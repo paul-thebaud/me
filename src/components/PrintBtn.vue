@@ -10,14 +10,13 @@ import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
 const onPrint = () => {
-  const prevFontSize = window.document.documentElement.style.fontSize;
   store.printing = true;
-  window.document.documentElement.style.fontSize = '10px';
+  window.document.documentElement.classList.add('application--printing');
 
   setTimeout(() => {
     window.print();
 
-    window.document.documentElement.style.fontSize = prevFontSize;
+    window.document.documentElement.classList.remove('application--printing');
     store.printing = false;
   }, 250);
 };

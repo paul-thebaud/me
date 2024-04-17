@@ -5,13 +5,14 @@
 import LocaleMenu from '@/components/LocaleMenu.vue';
 import PrintBtn from '@/components/PrintBtn.vue';
 import ResumeContent from '@/components/resume/ResumeContent.vue';
-import ThemeMenu from '@/components/ThemeMenu.vue';</script>
+import ThemeMenu from '@/components/ThemeMenu.vue';
+</script>
 
 <template>
   <v-app>
     <v-main>
       <v-container>
-        <header class="d-print-none d-flex align-center pb-6 pb-md-12">
+        <header class="d-print-none d-flex align-center pb-2">
           <theme-menu />
           <locale-menu />
           <v-spacer />

@@ -3,32 +3,14 @@
   setup
 >
 import profileJPG from '@/assets/profile.jpg';
-import profileWebP from '@/assets/profile.webp';
 import OpenInNewText from '@/components/OpenInNewText.vue';
 import store from '@/store';
 import { mdiEmailOutline, mdiGithub, mdiLinkedin, mdiPhoneOutline } from '@mdi/js';
-import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useDisplay } from 'vuetify';
 
 const { t } = useI18n();
 const { mobile, width } = useDisplay();
-
-const img = ref(null);
-
-// TODO Remove this temporary fix for vuetify alt on picture.
-const fixImgAlt = () => {
-  const imgEl = (img.value as any).$el?.getElementsByTagName('img')[0] || undefined;
-  if (imgEl) {
-    imgEl.alt = '';
-  } else {
-    setTimeout(() => fixImgAlt(), 100);
-  }
-};
-
-onMounted(() => {
-  fixImgAlt();
-});
 </script>
 
 <template>
@@ -38,34 +20,26 @@ onMounted(() => {
       class="d-flex"
     >
       <v-img
-        ref="img"
         :src="profileJPG"
+        :aria-label="undefined"
+        alt=""
         class="align-self-stretch"
         max-height="50vh"
         width="148"
         cover
-      >
-        <template #sources>
-          <source
-            :srcset="profileWebP"
-            type="image/webp"
-          />
-          <source
-            :srcset="profileJPG"
-            type="image/jpeg"
-          />
-        </template>
-      </v-img>
+      />
       <div class="w-100">
         <v-card-title>
           <h1 class="text-h4">
             Paul Thébaud
           </h1>
         </v-card-title>
-        <v-card-text>
-          <p class="text-body-1 mb-2">
+        <v-card-text class="pb-0">
+          <p class="text-body-1">
             {{ t('description') }}
           </p>
+        </v-card-text>
+        <v-card-text class="pa-2">
           <v-row no-gutters>
             <v-col class="d-flex flex-column align-start">
               <v-btn

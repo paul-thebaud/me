@@ -12,7 +12,7 @@ const { t } = useI18n();
 const hobbies = computed(() => [
   { name: t('hobbies.music'), color: 'primary' },
   { name: t('hobbies.openSource'), color: 'primary' },
-  { name: t('hobbies.bicycle'), color: 'primary' },
+  { name: t('hobbies.motorbike'), color: 'primary' },
   { name: t('hobbies.cinema'), color: 'primary' },
   { name: t('hobbies.videoGames'), color: 'primary' },
 ]);
@@ -31,7 +31,7 @@ const hobbies = computed(() => [
     "hobbies": {
       "music": "écoute de musique",
       "openSource": "open source",
-      "bicycle": "vélo",
+      "motorbike": "moto",
       "cinema": "cinéma",
       "videoGames": "jeux vidéo"
     }
@@ -41,7 +41,7 @@ const hobbies = computed(() => [
     "hobbies": {
       "music": "music listening",
       "openSource": "open source",
-      "bicycle": "bicycle",
+      "motorbike": "motorbike",
       "cinema": "cinema",
       "videoGames": "video games"
     }

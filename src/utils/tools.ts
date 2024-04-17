@@ -19,10 +19,6 @@ export default {
     name: 'Laravel',
     color: 'red-lighten-1',
   },
-  LUMEN: {
-    name: 'Lumen',
-    color: 'red-lighten-1',
-  },
   JS: {
     name: 'JS',
     color: 'yellow-darken-3',
@@ -38,10 +34,6 @@ export default {
   VITE: {
     name: 'Vite',
     color: 'purple-accent-3',
-  },
-  WEBPACK: {
-    name: 'Webpack',
-    color: 'blue-lighten-1',
   },
   VUE: {
     name: 'Vue',
@@ -75,24 +67,16 @@ export default {
     name: 'GitHub',
     color: 'blue-grey-darken-4',
   },
-  GIT_KRAKEN: {
-    name: 'Git Kraken',
-    color: 'cyan-darken-4',
-  },
   HEROKU: {
     name: 'Heroku',
     color: 'purple-lighten-1',
   },
-  GITHUB_ACTIONS: {
-    name: 'GitHub Actions',
-    color: 'blue-grey-darken-4',
+  PEST: {
+    name: 'PEST',
+    color: 'purple-accent-3',
   },
-  PHPUNIT: {
-    name: 'PHPUnit',
-    color: 'blue-darken-3',
-  },
-  JEST: {
-    name: 'JEST',
+  VITEST: {
+    name: 'Vitest',
     color: 'green',
   },
   CYPRESS: {

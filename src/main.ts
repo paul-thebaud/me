@@ -1,3 +1,4 @@
+import '@/scss/main.scss';
 import App from '@/App.vue';
 import i18n from '@/plugins/i18n';
 import changeLocale from '@/plugins/i18n/changeLocale';

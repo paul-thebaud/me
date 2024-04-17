@@ -29,21 +29,17 @@ const skills = computed(() => [
     tools: [tools.POSTGRESQL, tools.SQLITE, tools.MYSQL],
   },
   {
-    title: t('categories.versioning'),
-    tools: [tools.GIT, tools.GITHUB, tools.GIT_KRAKEN],
-  },
-  {
     title: t('categories.others'),
     tools: [
       { name: t('skills.needsAnalysis'), color: 'primary' },
       { name: t('skills.functionalSpecifications'), color: 'primary' },
       tools.HEROKU,
-      tools.GITHUB_ACTIONS,
+      tools.GIT,
+      tools.GITHUB,
       tools.SASS,
       tools.VITE,
-      tools.WEBPACK,
-      tools.PHPUNIT,
-      tools.JEST,
+      tools.PEST,
+      tools.VITEST,
       tools.CYPRESS,
       tools.PHPSTORM,
     ],
@@ -88,7 +84,7 @@ const skills = computed(() => [
     },
     "skills": {
       "needsAnalysis": "Étude des besoins",
-      "functionalSpecifications": "Spécifications fonctionnelles",
+      "functionalSpecifications": "Spec. fonctionnelles",
       "french": "Français",
       "english": "Anglais (CLES en 2018)"
     }
@@ -107,7 +103,7 @@ const skills = computed(() => [
     },
     "skills": {
       "needsAnalysis": "Needs analysis",
-      "functionalSpecifications": "Functional specifications",
+      "functionalSpecifications": "Functional spec.",
       "french": "French (native)",
       "english": "English (CLES in 2018)"
     }

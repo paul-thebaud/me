@@ -39,10 +39,12 @@ const { title, items } = defineProps({
           size="x-small"
         >
           <template #opposite>
-            <slot
-              name="date"
-              v-bind="{ item }"
-            />
+            <div class="text-right">
+              <slot
+                name="date"
+                v-bind="{ item }"
+              />
+            </div>
           </template>
           <slot
             name="item"

@@ -2,9 +2,9 @@ import dark from '@/plugins/vuetify/dark';
 import highContrast from '@/plugins/vuetify/highContrast';
 import light from '@/plugins/vuetify/light';
 import themes from '@/plugins/vuetify/themes';
-import '@/scss/main.scss';
 import { createVuetify } from 'vuetify';
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
+import 'vuetify/styles';
 
 export default createVuetify({
   theme: {
@@ -20,6 +20,17 @@ export default createVuetify({
     aliases,
     sets: {
       mdi,
+    },
+  },
+  defaults: {
+    VCard: {
+      elevation: 0,
+    },
+    VBtn: {
+      rounded: 'pill',
+    },
+    VList: {
+      rounded: 'lg',
     },
   },
 });

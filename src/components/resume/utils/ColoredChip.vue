@@ -15,8 +15,8 @@ const { name, color } = defineProps({
     type: String,
   },
   color: {
-    required: true,
     type: String,
+    default: undefined,
   },
 });
 

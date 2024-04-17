@@ -1,21 +1,33 @@
-@use "vuetify/styles" with (
-$heading-font-family: "Poppins",
-$body-font-family: "Source Sans Pro",
-$border-color-root: rgba(var(--v-theme-on-background), var(--v-border-opacity)),
-$timeline-dot-divider-background: rgba(var(--v-theme-on-background), var(--v-border-opacity)),
-$timeline-divider-line-background: rgba(var(--v-theme-on-background), var(--v-border-opacity)),
-$card-title-word-break: break-word,
-$card-title-white-space: normal !important,
-);
+* {
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+h1 {
+  font-weight: 900 !important;
+}
+
+h2 {
+  font-weight: bold !important;
+}
 
 a {
   color: rgb(var(--v-theme-primary));
 }
 
 .text--monospace {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Inconsolata", monospace;
 }
 
 .page-break--avoid {
   page-break-inside: avoid;
+}
+
+.application--printing {
+  font-size: 10px !important;
+
+  .v-chip {
+    height: 16px !important;
+  }
 }

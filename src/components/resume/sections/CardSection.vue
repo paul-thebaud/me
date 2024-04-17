@@ -2,12 +2,13 @@
   lang="ts"
   setup
 >
-import { PropType } from 'vue';
+import { mdiMinusCircleOutline, mdiPlusCircleOutline } from '@mdi/js';
+import { computed, PropType, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const { title, items } = defineProps({
+const props = defineProps({
   title: {
     required: true,
     type: String,
@@ -17,6 +18,17 @@ const { title, items } = defineProps({
     default: () => [],
   },
 });
+
+const showAllItems = ref(false);
+
+const hasMoreItems = computed(() => props.items.some((item) => item.hide === true));
+const visibleItems = computed(() => (
+  showAllItems.value ? props.items : props.items.filter((item) => item.hide !== true)
+));
+
+const onToggleShowAllItems = () => {
+  showAllItems.value = !showAllItems.value;
+};
 </script>
 
 <template>
@@ -26,10 +38,10 @@ const { title, items } = defineProps({
         {{ title }}
       </h2>
     </v-card-title>
-    <v-card-text>
+    <v-card-text class="pb-1">
       <slot>
         <template
-          v-for="(item, index) in items"
+          v-for="(item, index) in visibleItems"
           :key="`items.${index}`"
         >
           <v-divider
@@ -45,5 +57,32 @@ const { title, items } = defineProps({
         </template>
       </slot>
     </v-card-text>
+    <v-card-actions
+      v-if="hasMoreItems"
+      class="d-print-none pt-0"
+    >
+      <v-btn
+        :prepend-icon="showAllItems ? mdiMinusCircleOutline : mdiPlusCircleOutline"
+        :aria-expanded="String(showAllItems)"
+        variant="text"
+        block
+        @click="onToggleShowAllItems"
+      >
+        {{ showAllItems ? t('showLess') : t('showMore') }}
+      </v-btn>
+    </v-card-actions>
   </v-card>
 </template>
+
+<i18n>
+{
+  "fr": {
+    "showMore": "Afficher plus",
+    "showLess": "Afficher moins"
+  },
+  "en": {
+    "showMore": "Show more",
+    "showLess": "Show less"
+  }
+}
+</i18n>
