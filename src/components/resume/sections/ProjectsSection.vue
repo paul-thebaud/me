@@ -81,8 +81,8 @@ const projects = computed(() => [
     description: t('projects.phpUnitGen.description'),
     tools: [tools.PHP, tools.LARAVEL, tools.TS, tools.VUE],
     website: {
-      name: 'phpunitgen.io',
-      url: 'https://phpunitgen.io',
+      name: 'github.com/paul-thebaud/phpunitgen-core',
+      url: 'https://github.com/paul-thebaud/phpunitgen-core',
     },
   },
 ]);
